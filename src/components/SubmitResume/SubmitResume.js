@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Icon from '@material-ui/core/Icon';
+import fetch from 'isomorphic-fetch';
 
 
 
@@ -42,21 +43,33 @@ const SubmitResume = () => {
 			});
 	}, []);
 
-  const [postSubmit, setPostSubmit]= useState([])
+  // const [postSubmit, setPostSubmit]= useState([])
 
-  // const onSubmit=(values){
-  //   useEffect(()=>{
-  //     const options={
-  //       method:'POST',
-  //       headers:{}
-  //     }
-  
-  //     fetch(``, options)
-  //     .then(response=>response.json())
-  //     .then(data=>{setPostSubmit(data); console.log(data);})
-  //   })
-  //   console.log(values);
-  // }
+	// const  onSubmit=(data)=> {
+	// 	return fetch('http://turtkul4.herokuapp.com/about_authority/Job_Applications_Model', {
+	// 			method: 'POST',
+	// 			body: JSON.stringify(data),
+	// 			headers: {
+	// 					'Content-Type': 'application/json'
+	// 			}
+	// 	}).then(response => {
+	// 			if (response.status >= 200 && response.status < 300) {
+	// 					return response;
+	// 					// console.log(response);
+	// 					// window.location.reload();
+	// 				} else {
+	// 				 console.log('Somthing happened wrong');
+	// 				}
+	// 	}).catch(err => err);
+	// 	}
+
+	// const onSubmit=(values)=>{
+	// 	const options = {
+	// 		method: 'POST',
+	// 		headers: {
+				
+	// 		}
+	// 	};
 
 	const nations = [
 		('another', 'boshqa'),
@@ -89,21 +102,21 @@ const SubmitResume = () => {
 				<Form.Item name='vacancy' label='Бўш иш ўринлари *'>
 					<Select>
 						{currentVacancy.map((e, i) => (
-							<Select.Option key={i} value={e.job}>{e.job}</Select.Option>
+							<Select.Option key={i} value={e.id}>{e.job}</Select.Option>
 						))}
 					</Select>
 				</Form.Item>
-				<Form.Item name='firstName' label='ФИШ *'>
+				<Form.Item name='full_name' label='ФИШ *'>
 					<Input placeholder='Фамилияси Исми Отасининг исми' />
 				</Form.Item>
 				<Row gutter={24}>
 					<Col span={8}>
-						<Form.Item name='birthday' label='Дата рождения *'>
+						<Form.Item name='birth' label='Дата рождения *'>
 							<DatePicker />
 						</Form.Item>
 					</Col>
 					<Col span={8}>
-						<Form.Item name='nations' label='Миллатингиз *'>
+						<Form.Item name='nation' label='Миллатингиз *'>
 							<Select>
 								{nations.map((e, i) => (
 									<Select.Option key={i} value={e}>
@@ -114,7 +127,7 @@ const SubmitResume = () => {
 						</Form.Item>
 					</Col>
 					<Col span={8}>
-						<Form.Item name='familyStatuses' label='Оилавий аҳволингиз *'>
+						<Form.Item name='family_status' label='Оилавий аҳволингиз *'>
 							<Select>
 								{family_statuses.map((e, i) => (
 									<Select.Option key={i} value={e}>
@@ -144,7 +157,7 @@ const SubmitResume = () => {
 				</Row>
 				<Row gutter={24}>
 					<Col span={8}>
-						<Form.Item name='tell' label='Telefon *'>
+						<Form.Item name='phone' label='Telefon *'>
 							<Input />
 						</Form.Item>
 					</Col>
@@ -154,19 +167,35 @@ const SubmitResume = () => {
 						</Form.Item>
 					</Col>
 					<Col span={8}>
-						<Form.Item name='CTR-Number' label='СТИР рақамингиз *'>
+						<Form.Item name='ctir' label='СТИР рақамингиз *'>
 							<Input />
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={24}>
 					<Col span={8}>
-						<Form.Item name='institution' label='Қайси таълим муассасасини тамомлагансиз *'>
+						<Form.Item name='educated' label='Маълумотингиз *'>
+							<Select>
+								<Select.Option value='Oliy'>Oliy</Select.Option>
+								<Select.Option value='Orta-maxsus'>O'rta-maxsus</Select.Option>
+								<Select.Option value='Orta-malumot'>O'rta malumot</Select.Option>
+							</Select>
+						</Form.Item>
+					</Col>
+					<Col span={16}>
+						<Form.Item name='specialty' label=' Мутахассислигингиз *'>
+							<Input />
+						</Form.Item>
+					</Col>
+				</Row>
+				<Row gutter={24}>
+					<Col span={8}>
+						<Form.Item name='graduated_year' label='Қайси таълим муассасасини тамомлагансиз *'>
 							<Input placeholder='Йил' />
 						</Form.Item>
 					</Col>
 					<Col span={16}>
-						<Form.Item name='graduated' label=' '>
+						<Form.Item name='educational_institution' label=' '>
 							<Input placeholder='Таълим муассасасини номи' />
 						</Form.Item>
 					</Col>
@@ -178,7 +207,7 @@ const SubmitResume = () => {
 						</Form.Item>
 					</Col>
           <Col span={12}>
-						<Form.Item name='additional-information' label='Қўшимча маълумотлар'>
+						<Form.Item name='additional_info' label='Қўшимча маълумотлар'>
 							<TextArea rows={5} placeholder=''/>
 						</Form.Item>
 					</Col>

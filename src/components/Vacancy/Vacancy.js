@@ -10,7 +10,7 @@ export default function Vacancy() {
 	return (
 		<ul className='vacancy__list'>
 			<h1>Vacancy page</h1>
-			<Tabs defaultActiveKey='1' activeKey={activeKey} >
+			<Tabs defaultActiveKey='1' activeKey={activeKey} onChange={(e)=>setActiveKey(e)}>
 				<Tabs.TabPane tab="Ma'lumot" key='1'>
 					<ActionsInAccordionSummary setActiveKey={setActiveKey} />
 				</Tabs.TabPane>

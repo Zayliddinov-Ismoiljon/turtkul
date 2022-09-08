@@ -32,7 +32,7 @@ export default function ActionsInAccordionSummary({setActiveKey}) {
       `http://turtkul4.herokuapp.com/about_authority/Vacancies_Model`, options
     )
       .then((response) => response.json())
-      .then((data) => {setVacancy(data)});
+      .then((data) => {setVacancy(data);});
   },[])
 
   return (
