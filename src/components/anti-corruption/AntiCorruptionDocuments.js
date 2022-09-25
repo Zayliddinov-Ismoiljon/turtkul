@@ -10,7 +10,7 @@ export default function AntiCorruptionDocuments() {
 		};
 
 		fetch(
-			`https://turtkul4.herokuapp.com/anti_corruption/Anticorruption_Documents`,
+			`https://turtkul41.herokuapp.com/anti_corruption/Anticorruption_Documents`,
 			options,
 		)
 			.then((response) => response.json())

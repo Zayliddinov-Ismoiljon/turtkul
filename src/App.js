@@ -32,10 +32,6 @@ function App() {
         </Router>
       </Suspense>
       <Toaster containerStyle={{ zIndex: "100000" }} />
-      {/* <AksilCorrupsiya/> */}
-      {/* <Connection/> */}
-      {/* <Government/> */}
-      {/* <Vacancy/> */}
     </ThemeProvider>
   );
 }

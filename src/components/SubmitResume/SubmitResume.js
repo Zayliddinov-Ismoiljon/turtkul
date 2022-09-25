@@ -20,6 +20,7 @@ import {
 	Row,
 	Col,
 } from 'antd';
+import { set } from 'react-hook-form';
 
 const { TextArea } = Input;
 
@@ -34,7 +35,7 @@ const SubmitResume = () => {
 		};
 
 		fetch(
-			`http://turtkul4.herokuapp.com/about_authority/Vacancies_Model`,
+			`http://turtkul41.herokuapp.com/about_authority/Vacancies_Model`,
 			options,
 		)
 			.then((response) => response.json())
@@ -43,33 +44,19 @@ const SubmitResume = () => {
 			});
 	}, []);
 
-  // const [postSubmit, setPostSubmit]= useState([])
+	
+  const [postSubmit, setPostSubmit]= useState([])
+	const  onSubmit=(values)=> {
+		const options={
+			method:"POST",
+			headers:{'Content-Type': 'application/json'},
+			body: JSON.stringify(values)
+		}
+		fetch(`https://turtkul41.herokuapp.com/about_authority/Job_Applications_Model`, options)
+		.then(response=>response.json())
+		.then(data=>setPostSubmit(data))
 
-	// const  onSubmit=(data)=> {
-	// 	return fetch('http://turtkul4.herokuapp.com/about_authority/Job_Applications_Model', {
-	// 			method: 'POST',
-	// 			body: JSON.stringify(data),
-	// 			headers: {
-	// 					'Content-Type': 'application/json'
-	// 			}
-	// 	}).then(response => {
-	// 			if (response.status >= 200 && response.status < 300) {
-	// 					return response;
-	// 					// console.log(response);
-	// 					// window.location.reload();
-	// 				} else {
-	// 				 console.log('Somthing happened wrong');
-	// 				}
-	// 	}).catch(err => err);
-	// 	}
-
-	// const onSubmit=(values)=>{
-	// 	const options = {
-	// 		method: 'POST',
-	// 		headers: {
-				
-	// 		}
-	// 	};
+		}
 
 	const nations = [
 		('another', 'boshqa'),
@@ -92,14 +79,18 @@ const SubmitResume = () => {
 		('ajrashgan', 'ajrashgan'),
 	];
 
-	const onSubmit = (values) => {
-		console.log(values);
-	};
+
+	const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+	// const onSubmit = (values) => {
+	// 	console.log(values);
+	// };
 
 	return (
 		<>
 			<Form layout='vertical' onFinish={onSubmit}>
-				<Form.Item name='vacancy' label='Бўш иш ўринлари *'>
+				<Form.Item name='vacancies' label='Бўш иш ўринлари *'>
 					<Select>
 						{currentVacancy.map((e, i) => (
 							<Select.Option key={i} value={e.id}>{e.job}</Select.Option>
@@ -140,17 +131,17 @@ const SubmitResume = () => {
 				</Row>
 				<Row gutter={24}>
 					<Col span={8}>
-						<Form.Item name='address' label='Яшаш манзилингиз *'>
+						<Form.Item name='addres' label='Яшаш манзилингиз *'>
 							<Input />
 						</Form.Item>
 					</Col>
 					<Col span={8}>
-						<Form.Item name='address-district' label='Манзил'>
+						<Form.Item  label='Манзил'>
 							<Input placeholder='Manzil' />
 						</Form.Item>
 					</Col>
 					<Col span={8}>
-						<Form.Item name='address-village'  label=' '>
+						<Form.Item  label=' '>
 							<Input placeholder='Manzil' />
 						</Form.Item>
 					</Col>
@@ -176,9 +167,9 @@ const SubmitResume = () => {
 					<Col span={8}>
 						<Form.Item name='educated' label='Маълумотингиз *'>
 							<Select>
-								<Select.Option value='Oliy'>Oliy</Select.Option>
-								<Select.Option value='Orta-maxsus'>O'rta-maxsus</Select.Option>
-								<Select.Option value='Orta-malumot'>O'rta malumot</Select.Option>
+								<Select.Option value='higly'>Oliy</Select.Option>
+								<Select.Option value='medium_special'>O'rta-maxsus</Select.Option>
+								<Select.Option value='medium'>O'rta malumot</Select.Option>
 							</Select>
 						</Form.Item>
 					</Col>
@@ -198,11 +189,14 @@ const SubmitResume = () => {
 						<Form.Item name='educational_institution' label=' '>
 							<Input placeholder='Таълим муассасасини номи' />
 						</Form.Item>
+						<Form.Item name='date' label='yuborish vaqti'>
+							<Input type='date'/>
+						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={24}>
 					<Col span={12}>
-						<Form.Item name='grateful' label='Ишга киришишдан мамнунмиз'>
+						<Form.Item label='Ишга киришишдан мамнунмиз'>
 							<TextArea rows={5} placeholder='Ушбу банд жуда муҳим! Уни қай даражада қисқа ва мазмунли ёритишингизга қараб, давлат солиқ хизмати тизимида ўрин топишингизда хулоса чиқарилади.'/>
 						</Form.Item>
 					</Col>

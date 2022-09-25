@@ -13,7 +13,7 @@ export default function Government() {
     };
 
     fetch(
-      `http://turtkul4.herokuapp.com/about_authority/models/Electronic_Government_Model`, options
+      `http://turtkul41.herokuapp.com/about_authority/models/Electronic_Government_Model`, options
     )
       .then((response) => response.json())
       .then((data) => {setEGovernment(data)});

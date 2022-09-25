@@ -11,7 +11,7 @@ export default function AntiCorruption() {
     };
 
     fetch(
-      `https://turtkul4.herokuapp.com/anti_corruption/Anticorruption_News`, options
+      `https://turtkul41.herokuapp.com/anti_corruption/Anticorruption_News`, options
     )
       .then((response) => response.json())
       .then((data) => {setCorrupsiya(data);});

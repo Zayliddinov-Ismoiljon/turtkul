@@ -11,7 +11,7 @@ export default function Connection() {
 		};
 
 		fetch(
-			`http://turtkul4.herokuapp.com/about_authority/models/Connection_Model`,
+			`http://turtkul41.herokuapp.com/about_authority/models/Connection_Model`,
 			options,
 		)
 			.then((response) => response.json())

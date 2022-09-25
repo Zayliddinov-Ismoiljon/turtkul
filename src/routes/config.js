@@ -1,7 +1,18 @@
+import ActionStrategy from "components/ActionStrategy/ActionStrategy";
 import AntiCorruption from "components/anti-corruption/AntiCorruption";
 import AntiCorruptionDocuments from "components/anti-corruption/AntiCorruptionDocuments";
+import Business from "components/Business/Business";
 import Connection from "components/connection/Connection";
+import EconomicIndicators from "components/EconomicIndicators/EconomicIndicators";
 import Government from "components/Government/Government";
+import GovernmentPrograms from "components/GovernmentPrograms/GovernmentPrograms";
+import InternationalRelations from "components/InternationalRelations/InternationalRelations";
+import InvestmentPotential from "components/InvestmentPotential/InvestmentPotential";
+import OpenData from "components/OpenData/OpenData";
+import OpenSelections from "components/OpenSelections/OpenSelections";
+import PublicCouncil from "components/PublicCouncil/PublicCouncil";
+import StatisticalReports from "components/StatisticalReports/StatisticalReports";
+import TourismActivities from "components/TourismActivities/TourismActivities";
 import Vacancy from "components/Vacancy/Vacancy";
 import { lazy } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
@@ -71,6 +82,50 @@ const routes = [
       {
         path: "about/vacancies",
         element: <Vacancy />,
+      },
+      {
+        path: "activity/actions-strategy",
+        element: <ActionStrategy />,
+      },
+      {
+        path: "activity/gov-programs",
+        element: <GovernmentPrograms />,
+      },
+      {
+        path: "activity/investments-potential",
+        element: <InvestmentPotential />,
+      },
+      {
+        path: "activity/tourism-activities",
+        element: <TourismActivities />,
+      },
+      {
+        path: "activity/public-council",
+        element: <PublicCouncil />,
+      },
+      {
+        path: "activity/open-data",
+        element: <OpenData />,
+      },
+      {
+        path: "activity/business",
+        element: <Business />,
+      },
+      {
+        path: "activity/economic-indicators",
+        element: <EconomicIndicators />,
+      },
+      {
+        path: "activity/open-selections",
+        element: <OpenSelections />,
+      },
+      {
+        path: "activity/statistical-reports",
+        element: <StatisticalReports />,
+      },
+      {
+        path: "activity/international-relations",
+        element: <InternationalRelations />,
       },
       {
         path: "search-result",

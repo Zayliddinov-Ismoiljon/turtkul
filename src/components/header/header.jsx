@@ -1,63 +1,80 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Grid from "@mui/material/Grid";
-import HeaderNewsItem from "./header-news-item";
-import Divider from "@mui/material/Divider";
-import { Wrapper } from "./header.styles";
-import {
-  getNewsData,
-  setActiveFilter,
-} from "../../store/reducer-and-action/news/newsSlice";
-import Skeleton from "@mui/material/Skeleton";
-import { getNewsStatus } from "store/reducer-and-action/news/newsSlice";
-import Contacts from "components/contacts/contacts";
+import React, { useEffect, useState } from 'react';
+import Grid from '@mui/material/Grid';
+import HeaderNewsItem from './header-news-item';
+import Divider from '@mui/material/Divider';
+import { Wrapper } from './header.styles';
+import Skeleton from '@mui/material/Skeleton';
 
 const Header = () => {
-  const news = useSelector(getNewsData);
-  const pending = useSelector(getNewsStatus);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setActiveFilter("news/all"));
-  }, []);
+  const [news, setNews] = useState()
+	const [pending, setPending] = useState(false);
 
-  const WaitingNews = ({ id }) => {
-    return !news || pending ? (
-      <Skeleton
-        animation="wave"
-        variant="rectangular"
-        width="100%"
-        height="400px"
-      />
-    ) : (
-      <HeaderNewsItem news={news[id]} />
-    );
-  };
-  return (
-    <Wrapper>
-      <Grid container spacing={4}>
-        <Grid item xs={12} sm={7} md={6}>
+  useEffect(() => {
+    setPending(true)
+		const options = {
+			method: 'GET',
+			headers: {},
+		};
+
+	fetch(`https://turtkul41.herokuapp.com/authority_news/last`, options)
+		.then((response) => response.json())
+		.then((data) => {
+			setNews(data.uz);
+		});
+    setPending(false);
+	},[]);
+
+	console.log('headerNews',news);
+
+	// const WaitingNews = ({ id }) => {
+	// 	return !news || pending ? (
+	// 		<Skeleton
+	// 			animation='wave'
+	// 			variant='rectangular'
+	// 			width='100%'
+	// 			height='400px'
+	// 		/>
+	// 	) : (
+	// 		<HeaderNewsItem />
+	// 	);
+	// };
+	return (
+		<Wrapper>
+			{
+        pending ? <Grid container spacing={4}>
+				<Grid item xs={12} sm={7} md={6}>
+					<br />
+					<Divider />
+					<br />
+					<Skeleton animation='wave' variant='rectangular' width='100%' height='400px'
+					/>
+				</Grid>
+				<Grid item xs={12} sm={5} md={3}>
+					<br />
+					<Divider />
+					<br />
+					<Skeleton animation='wave' variant='rectangular' width='100%' height='400px'
+					/>
           <br />
-          <Divider />
+					<Skeleton animation='wave' variant='rectangular' width='100%' height='400px'
+					/>
+				</Grid>
+				<Grid item xs={12} sm={12} md={3}>
+					<br />
+					<Divider />
+					<br />
+					<Skeleton animation='wave' variant='rectangular' width='100%' height='400px'
+					/>
           <br />
-          <WaitingNews id={0} />
-        </Grid>
-        <Grid item xs={12} sm={5} md={3}>
-          <br />
-          <Divider />
-          <br />
-          <WaitingNews id={1} />
-          <WaitingNews id={2} />
-        </Grid>
-        <Grid item xs={12} sm={12} md={3}>
-          <br />
-          <Divider />
-          <br />
-          <WaitingNews id={3} />
-          <WaitingNews id={4} />
-        </Grid>
-      </Grid>
-    </Wrapper>
-  );
+					<Skeleton animation='wave' variant='rectangular' width='100%' height='400px'
+					/>
+				</Grid>
+			</Grid> : 
+      <HeaderNewsItem news={news} />
+      }
+		</Wrapper>
+		// <p>salom</p>
+	);
 };
 
 export default Header;
