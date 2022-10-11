@@ -6,7 +6,7 @@ import { fetchNews } from "store/reducer-and-action/news/newsSlice";
 import App from "./App";
 import 'antd/dist/antd.min.css';
 
-store.dispatch(fetchNews("news/all"));
+store.dispatch(fetchNews("authority_news/all"));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>

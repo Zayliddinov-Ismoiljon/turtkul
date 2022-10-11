@@ -7,18 +7,17 @@ import EventIcon from '@mui/icons-material/Event';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const FilteredNewsItems = ({ newsAll = [], newsFilter }) => {
+const FilteredNewsItems = ({ news = [], newsFilter }) => {
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
 
-
-
+	console.log(news);
 	return (
 		<NewsWrapper>
-			{newsAll?.length ? (
-				newsAll.map((news_item, i) => (
+			{news?.length ? (
+				news.map((news_item, i) => (
 					<div data-aos='fade-right' key={i}>
 						<Link
 							to={

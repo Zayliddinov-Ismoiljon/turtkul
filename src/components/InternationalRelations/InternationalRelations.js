@@ -23,7 +23,7 @@ export default function InternationalRelations() {
 			{internationalRelations.map((item, i) => (
 				<Col span={6} key={i}>
 					<Card>
-						<Link to={'/sdsdf'}>
+						<Link to={`/activity/sdsdf/${item?.id}`}>
 						<img width={'100%'} src={item.image} alt='image' />
 						</Link>
 						<h4>{item.title}</h4>

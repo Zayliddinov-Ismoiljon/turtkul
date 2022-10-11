@@ -49,7 +49,7 @@ const SubmitResume = () => {
 	const  onSubmit=(values)=> {
 		const options={
 			method:"POST",
-			headers:{'Content-Type': 'application/json'},
+			// headers:{'Content-Type': 'application/json'},
 			body: JSON.stringify(values)
 		}
 		fetch(`https://turtkul41.herokuapp.com/about_authority/Job_Applications_Model`, options)

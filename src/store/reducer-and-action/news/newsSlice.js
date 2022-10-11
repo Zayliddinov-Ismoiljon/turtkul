@@ -78,7 +78,8 @@ export const fetchNews = createAsyncThunk(
       return;
     }
     const { data } = await getData(
-      `${activeLanguageName}/${activeFilter || filter}`
+      // `${activeLanguageName}/${activeFilter || filter}`
+      `/${activeFilter || filter}`
     );
     thunkAPI.dispatch(setActiveFilter(filter));
     return { activeLanguageName, data };

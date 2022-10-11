@@ -19,7 +19,7 @@ import { getActiveFilter } from 'store/reducer-and-action/news/newsSlice';
 export default function FilteredNews() {
 	const news = useSelector(getNewsData);
 	const filterBar = useSelector(getFilterBarData);
-	// const pending = useSelector(getNewsStatus);
+	const pending = useSelector(getNewsStatus);
 	const dispatch = useDispatch();
 	const { pathname } = useLocation();
 	const [activeFiterTab, setActiveFilterTab] = useState(filterBar[0].route);
@@ -28,8 +28,12 @@ export default function FilteredNews() {
 	const handleChange = useCallback(
 		(filter) => {
 			setActiveFilterTab(filter);
-			dispatch(fetchNews('news/' + filter));
 			navigate(`/news/${filter}`);
+			if(filter !== "all"){
+				dispatch(fetchNews('authority_news/filter/' + filter));
+			} else {
+				dispatch(fetchNews('authority_news/all'));
+			}
 		},
 		[dispatch, navigate],
 	);
@@ -38,22 +42,11 @@ export default function FilteredNews() {
 		if (filterBar.some((item) => item.route === filter)) handleChange(filter);
 	}, [dispatch, filterBar, handleChange, pathname]);
 
-	const [newsAll, setNewsAll] = useState(news);
-	const [pending, setPending] = useState(true);
-
 	const newsFilter = useSelector(getActiveFilter);
 
-  const [newsItem, setNewsItem]= useState();
-  useEffect(()=>{
-    const options={
-      method:'GET',
-      headers:{}
-    }
+  const [filterName, setFilterName]= useState('');
 
-    fetch(`http://turtkul41.herokuapp.com/authority_news/all`, options)
-    .then(response=>response.json())
-    .then(data=> {setNewsItem (data)})
-  },[])
+	console.log("news: ", news);
 
 	return (
 		<Wrapper>
@@ -64,7 +57,7 @@ export default function FilteredNews() {
 							<Tab
 								key={route}
 								label={title}
-								onClick={() => handleChange(route)}
+								onClick={() => {handleChange(route); setFilterName(route)}}
 								value={route}
 							/>
 						))}
@@ -73,7 +66,7 @@ export default function FilteredNews() {
 				{pending ? (
 					<Loader />
 				) : (
-					<FilteredNewsItems news={newsAll} newsFilter={newsFilter} />
+					<FilteredNewsItems news={ filterName === "all" ? news?.uz : news} newsFilter={newsFilter} />
 				)}
 			</Box>
 			<Pagination />

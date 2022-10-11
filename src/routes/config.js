@@ -7,6 +7,7 @@ import Business from 'components/Business/Business';
 import CentralToll from 'components/CentralToll/CentralToll';
 import Connection from 'components/connection/Connection';
 import EconomicIndicators from 'components/EconomicIndicators/EconomicIndicators';
+import EventsId from 'components/events/EventsId/EventsId';
 import Government from 'components/Government/Government';
 import GovernmentPrograms from 'components/GovernmentPrograms/GovernmentPrograms';
 import HeaderNews from 'components/header/HeaderNews/HeaderNews';
@@ -183,7 +184,7 @@ const routes = [
 				element: <InternationalRelations />,
 			},
 			{
-				path: 'activity/sdsdf',
+				path: 'activity/sdsdf/:id',
 				element: <RelationDetail />,
 			},
 			{
@@ -261,6 +262,10 @@ const routes = [
 			{
 				path: 'services/licensing-services',
 				element: <LicensingServices/>,
+			},
+			{
+				path: 'events/:id',
+				element: <EventsId/>,
 			},
 			{
 				path: 'search-result',
