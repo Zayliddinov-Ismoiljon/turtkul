@@ -1,4 +1,6 @@
+import { Card, Col, Row } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function InternationalRelations() {
 	const [internationalRelations, setInternationalRelations] = useState([]);
@@ -15,16 +17,19 @@ export default function InternationalRelations() {
 			.then((response) => response.json())
 			.then((data) => setInternationalRelations(data));
 	}, []);
+	console.log('internationalRelation', internationalRelations);
 	return (
-		<>
+		<Row gutter={[12, 12]}>
 			{internationalRelations.map((item, i) => (
-				<div key={i}>
-					<img src={item.image} alt='image' />
-					<h3>{item.title}</h3>
-					<p dangerouslySetInnerHTML={{ __html: `${item.body}` }} />
-					<time>{item.date}</time>
-				</div>
+				<Col span={6} key={i}>
+					<Card>
+						<Link to={'/sdsdf'}>
+						<img width={'100%'} src={item.image} alt='image' />
+						</Link>
+						<h4>{item.title}</h4>
+					</Card>
+				</Col>
 			))}
-		</>
+		</Row>
 	);
 }

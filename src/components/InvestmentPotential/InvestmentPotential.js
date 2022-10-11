@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 export default function InvestmentPotential() {
-	const [investPotential, setInvestPotential] = useState();
+	const [potential, setPotential] = useState([]);
+
 	useEffect(() => {
 		const options = {
 			method: 'GET',
@@ -13,15 +14,16 @@ export default function InvestmentPotential() {
 			options,
 		)
 			.then((response) => response.json())
-			.then((data) => setInvestPotential(data));
+			.then((data) => {
+				setPotential(data);
+			});
 	}, []);
 
 	return (
 		<>
-			<img src={investPotential.image} alt='image' />
-			<h3>{investPotential.title}</h3>
-			<p dangerouslySetInnerHTML={{ __html: `${investPotential.body}` }} />
-			<time>{investPotential.date}</time>
+			<img src={potential.image} alt='image' />
+			<h3>{potential.title}</h3>
+			<div dangerouslySetInnerHTML={{ __html: `${potential.body}` }} />
 		</>
 	);
 }

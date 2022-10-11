@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ImgWrapper,
   FooterTop,
@@ -15,9 +15,21 @@ import stiker from "assets/footerImg/stiker.PNG";
 
 const Footer = () => {
   const footerData = useSelector(getFooterData);
+
+  const [footer, setFooter]= useState([]);
+  useEffect(()=>{
+    const options={
+      method:'GET',
+      headers:{}
+    }
+
+    fetch(`https://turtkul41.herokuapp.com/home/footer/`, options)
+    .then(response=>response.json())
+    .then(data=>{setFooter(data)})
+  },[])
   return (
     <Wrapper>
-      <FooterTop>
+      {/* <FooterTop>
         <Left>
           <ImgWrapper>
             <img src={logo} alt="logo" />
@@ -40,7 +52,8 @@ const Footer = () => {
       <FooterBottom>
         <p>{footerData.copyright}</p>
         <img src={stiker} alt="no img" />
-      </FooterBottom>
+      </FooterBottom> */}
+							<p dangerouslySetInnerHTML={{ __html: `${footer.footer}` }} />
     </Wrapper>
   );
 };

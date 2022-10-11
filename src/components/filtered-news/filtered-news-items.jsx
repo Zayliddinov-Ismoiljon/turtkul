@@ -7,30 +7,17 @@ import EventIcon from '@mui/icons-material/Event';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const FilteredNewsItems = ({ news = [], newsFilter }) => {
+const FilteredNewsItems = ({ newsAll = [], newsFilter }) => {
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
 
-	const [newsAll, setNewsAll] = useState(news);
 
-	useEffect(() => {
-		const options = {
-			method: 'GET',
-			headers: {},
-		};
-
-		fetch(`https://turtkul41.herokuapp.com/authority_news/all`, options)
-			.then((response) => response.json())
-			.then((data) => {
-				setNewsAll(data.uz);
-			});
-	}, []);
 
 	return (
 		<NewsWrapper>
-			{newsAll.length ? (
+			{newsAll?.length ? (
 				newsAll.map((news_item, i) => (
 					<div data-aos='fade-right' key={i}>
 						<Link
@@ -50,7 +37,7 @@ const FilteredNewsItems = ({ news = [], newsFilter }) => {
 										<img src={news_item.imagesown} alt='' />
 									</Grid>
 									<Grid item xs={12} sm={6} md={6} lg={6}>
-										<NewsInfo>
+					 					<NewsInfo>
 											<h4>{news_item.title}</h4>
 											<p
 												dangerouslySetInnerHTML={{

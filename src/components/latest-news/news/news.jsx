@@ -12,13 +12,11 @@ import {
 import { CustomPaper, MainBody, Time, Wrapper, Box } from './news.style';
 
 const News = ({ newsData = [] }) => {
-	const pending = useSelector(getNewsStatus);
-	const activeFilter = useSelector(getActiveFilter);
-	// console.log(newsData);
-
-	const [news, setNews] = useState(newsData);
+	const [news, setNews] = useState(newsData); 
+	const [pending, setPending] = useState(true);
 
 	useEffect(() => {
+		setPending(true);
 		const options = {
 			method: 'GET',
 			headers: {},
@@ -28,10 +26,9 @@ const News = ({ newsData = [] }) => {
 			.then((response) => response.json())
 			.then((data) => {
 				setNews(data.uz);
+				setPending(false);
 			});
 	}, []);
-
-
 
 	return (
 		<CustomPaper elevation={3}>
@@ -40,7 +37,7 @@ const News = ({ newsData = [] }) => {
 			) : (
 				<Box>
 					{news?.map((item, i) => (
-						<Link to={`news/${activeFilter}/${item.id}`} key={item.id}>
+						<Link to={`news/${item.filter}`} key={item.id}>
 							<SingleNews key={i} time={item.date} title={item.title} />
 						</Link>
 					))}

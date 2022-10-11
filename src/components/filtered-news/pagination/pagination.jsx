@@ -12,11 +12,11 @@ export default function Pagination() {
 
       fetch(`https://turtkul41.herokuapp.com/authority_news/count`, options)
       .then(response=>response.json())
-      .then(data=>{setCount(data); console.log(data);})
+      .then(data=>{setCount(data);})
    },[])
    return (
       <Stack spacing={2}>
-         <PaginationRounded count={count.values} variant="outlined" shape="rounded" />
+         <PaginationRounded count={count?.values} variant="outlined" shape="rounded" />
       </Stack>
    );
 }

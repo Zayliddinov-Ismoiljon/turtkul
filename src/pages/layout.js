@@ -11,7 +11,7 @@ const Layout = () => {
       <SpecMenu />
       <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

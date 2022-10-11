@@ -16,9 +16,8 @@ export default function AntiCorruptionDocuments() {
 			.then((response) => response.json())
 			.then((data) => {
 				setCorruptionDoc(data);
-				console.log(data);
 			});
-	});
+	},[]);
 
 	return (
 		<>

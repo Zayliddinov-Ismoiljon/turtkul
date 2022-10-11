@@ -8,11 +8,22 @@ import { Title, Wrapper } from "./asked-questions.style";
 import { QuestionsData } from "./questions-data";
 
 const AskedQuestions = () => {
+  const [askedQuestions, setAskedQuestions]= React.useState(QuestionsData);
+  React.useEffect(()=>{
+    const options={
+      method:'GET', 
+      headers:{}
+    }
+
+    fetch(`https://turtkul41.herokuapp.com/services/Services_Questions`, options)
+    .then(response=>response.json())
+    .then(data=>setAskedQuestions(data))
+  },[])
   return (
     <>
       <Title>Ko'p beriladigan savollar</Title>
       <Wrapper>
-        {QuestionsData.map((question, id) => (
+        {askedQuestions.map((question, id) => (
           <Accordion key={id}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
