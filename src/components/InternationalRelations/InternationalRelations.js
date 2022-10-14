@@ -17,13 +17,13 @@ export default function InternationalRelations() {
 			.then((response) => response.json())
 			.then((data) => setInternationalRelations(data));
 	}, []);
-	console.log('internationalRelation', internationalRelations);
+	
 	return (
 		<Row gutter={[12, 12]}>
 			{internationalRelations.map((item, i) => (
 				<Col span={6} key={i}>
 					<Card>
-						<Link to={`/activity/sdsdf/${item?.id}`}>
+						<Link to={`/activity/relation/${item?.id}`}>
 						<img width={'100%'} src={item.image} alt='image' />
 						</Link>
 						<h4>{item.title}</h4>

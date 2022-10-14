@@ -28,12 +28,8 @@ export default function FilteredNews() {
 	const handleChange = useCallback(
 		(filter) => {
 			setActiveFilterTab(filter);
+			dispatch(fetchNews('authority_news/filter/' + filter));
 			navigate(`/news/${filter}`);
-			if(filter !== "all"){
-				dispatch(fetchNews('authority_news/filter/' + filter));
-			} else {
-				dispatch(fetchNews('authority_news/all'));
-			}
 		},
 		[dispatch, navigate],
 	);
@@ -44,10 +40,6 @@ export default function FilteredNews() {
 
 	const newsFilter = useSelector(getActiveFilter);
 
-  const [filterName, setFilterName]= useState('');
-
-	console.log("news: ", news);
-
 	return (
 		<Wrapper>
 			<Box sx={{ width: '100%' }}>
@@ -57,7 +49,7 @@ export default function FilteredNews() {
 							<Tab
 								key={route}
 								label={title}
-								onClick={() => {handleChange(route); setFilterName(route)}}
+								onClick={() => {handleChange(route); }}
 								value={route}
 							/>
 						))}
@@ -66,7 +58,7 @@ export default function FilteredNews() {
 				{pending ? (
 					<Loader />
 				) : (
-					<FilteredNewsItems news={ filterName === "all" ? news?.uz : news} newsFilter={newsFilter} />
+					<FilteredNewsItems news={news} newsFilter={newsFilter} />
 				)}
 			</Box>
 			<Pagination />

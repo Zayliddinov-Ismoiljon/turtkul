@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-export default function RelationDetail() {
-	const [relationDetail, setRealtionDetail] = useState([]);
+export default function ProjectsId() {
+	const [projectsId, setProjectsId] = useState([]);
 	const url = useLocation((auth) => auth).pathname;
 	const id = url.split('/')[url.split('/').length - 1];
 
@@ -13,15 +13,14 @@ export default function RelationDetail() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models_news/International_Relations_Model/${id}`,
+			`https://turtkul41.herokuapp.com/activity/models_news/Projects_Model/${id}`,
 			options,
 		)
 			.then((response) => response.json())
 			.then((data) => {
-				setRealtionDetail(data);
+				setProjectsId(data);
 			});
 	}, []);
-
 	return (
 		<>
 			<div
@@ -32,12 +31,12 @@ export default function RelationDetail() {
 					<div class='carousel-item active'>
 						<img
 							style={{ width: '100%', height: '700px' }}
-							src={relationDetail[0]?.image}
+							src={projectsId[0]?.image}
 							class='d-block w-100'
 							alt='...'
 						/>
 					</div>
-					{relationDetail[1]?.map((item, i) => (
+					{projectsId[1]?.map((item, i) => (
 						<div key={i} class='carousel-item'>
 							<img
 								style={{ width: '100%', height: '700px' }}
@@ -64,8 +63,8 @@ export default function RelationDetail() {
 					<span class='visually-hidden'>Next</span>
 				</button>
 			</div>
-      <h3>{relationDetail[0]?.title}</h3>
-			<div dangerouslySetInnerHTML={{ __html: `${relationDetail[0]?.body}` }} />
+			<h3>{projectsId[0]?.title}</h3>
+			<div dangerouslySetInnerHTML={{ __html: `${projectsId[0]?.body}` }} />
 		</>
 	);
 }

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
-export default function OpenSelections() {
-	const [openSelections, setOpenSelections] = useState([]);
+export default function OpenMeeting() {
+  const [openSelections, setOpenSelections] = useState([]);
 	useEffect(() => {
 		const options = {
 			method: 'GET',
@@ -15,12 +15,12 @@ export default function OpenSelections() {
 			.then((response) => response.json())
 			.then((data) => setOpenSelections(data));
 	}, []);
-	return (
-		<>
+  return (
+    <>
 			<img src={openSelections.image} alt='image' />
 			<h3>{openSelections.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${openSelections.body}` }} />
 			<time>{openSelections.date}</time>
 		</>
-	);
+  )
 }

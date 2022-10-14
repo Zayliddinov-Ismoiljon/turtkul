@@ -5,8 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { MainFormWrapper, Textarea } from "./virtual-reception.styles";
 import SimpleModal from "./../common/modal";
-import { useDispatch } from "react-redux";
-import { phoneNumberPattern } from "./../../utils/phoneNumberPattern";
+import { useDispatch, useSelector } from "react-redux";
 import {
   fetchSupports,
   postSupports,
@@ -21,9 +20,11 @@ const MainForm = () => {
 
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    // dispatch(postSupports(data));
-    // dispatch(fetchSupports());
+  const data = useSelector((state) => state.supports);
+
+  const onSubmit = async (data) => {
+    await dispatch(postSupports(data));
+    dispatch(fetchSupports());
   };
 
   useEffect(() => {
@@ -33,24 +34,7 @@ const MainForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <MainFormWrapper>
-        <TextField
-          label="Phone Number"
-          {...register("phoneNumber", {
-            required: {
-              value: true,
-              message: "Telefon raqamingizni kiriting!",
-            },
-            minLength: {
-              value: 9,
-              message: "Telefon raqamingizni to'liq holatda kiriting!",
-            },
-            pattern: {
-              value: phoneNumberPattern,
-              message: "Telefon raqami nt kiritildi",
-            },
-          })}
-        />
-        {/* <Grid container spacing={4}>
+        <Grid container spacing={4}>
           <Grid item xs={12} sm={12} md={8} lg={6}>
             <TextField
               type="text"
@@ -82,7 +66,14 @@ const MainForm = () => {
               sx={{ width: "100%", marginBottom: 5 }}
               {...register("email", { required: true, maxLength: 30 })}
             />
-           
+            <TextField
+              id="number"
+              label="Number"
+              type="number"
+              required
+              sx={{ width: "100%", marginBottom: 5 }}
+              {...register("number", { required: true, maxLength: 30 })}
+            />
             <Textarea
               aria-label="address"
               minRows={3}
@@ -108,19 +99,19 @@ const MainForm = () => {
               label="Body"
               {...register("body", { required: true, maxLength: 200 })}
             />
-            <TextField
-              type="file"
-              id="file"
-              label="File"
+            {/* <TextField
+              type="date"
+              id="date"
+              label="date"
               sx={{ width: "100%", marginBottom: 5 }}
               required
-              {...register("file", {
+              {...register("date", {
                 required: true,
                 maxLength: 30,
               })}
-            />
+            /> */}
           </Grid>
-        </Grid> */}
+        </Grid>
         <SimpleModal
           head={"FUQAROLARNI MUROJAATLARINI KO`RIB ChIQISh TARTIBI"}
           p={"loram..."}

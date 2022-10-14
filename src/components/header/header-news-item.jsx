@@ -9,7 +9,7 @@ const HeaderNewsItem = ({ news }) => {
 			{news?.length ? (
 				<HeaderNewsItemWrapper>
 					<Row gutter={[12, 12]}>
-						<Col span={12}>
+						<Col md={24} xl={12}>
 							<Link to={`news_wiew/${news[0]?.id}`}>
 								<figure>
 									<img width={'100%'} src={news[0]?.imagesown} alt='news' />
@@ -23,10 +23,10 @@ const HeaderNewsItem = ({ news }) => {
 								<p>{news[0]?.date}</p>
 							</div>
 						</Col>
-						<Col span={12}>
+						<Col md={24} xl={12}>
 							<Row gutter={[12, 12]}>
 								{news?.slice(0, 5).map((item, i) => i > 0 && (
-											<Col span={12} key={i}>
+											<Col xs={24} sm={24} md={24} lg={12} xl={12} key={i}>
 												<Link to={`news_wiew/${item?.id}`}>
 													<figure>
 														<img

@@ -122,11 +122,11 @@ export const servicesData = {
   uz: {
     title: "Xizmatlar",
     data: [
-      "Fuqaro murojaatlari bilan ishlash (Virtual qabulxona)",
-      "Shahar transporti bo`yicha ma`lumot",
-      "Ko‘p beriladigan savollar",
-      "Fuqarolardan taklif va mulohazalarini olish",
-      "Xududlarni rivojlantirish",
+      {title: "Fuqaro murojaatlari bilan ishlash (Virtual qabulxona)", type: "citizens-appeal"},
+      {title: "Shahar transporti bo`yicha ma`lumot", type: "urban-transport"},
+      {title: "Ko‘p beriladigan savollar", type: "frequently-asked-questions"},
+      // {title: "Fuqarolardan taklif va mulohazalarini olish", type: ""},
+      // {title: "Xududlarni rivojlantirish", type: ""},
     ],
   },
   ru: {

@@ -20,7 +20,7 @@ const Header = () => {
 		fetch(`https://turtkul41.herokuapp.com/authority_news/last`, options)
 			.then((response) => response.json())
 			.then((data) => {
-				setNews(data.uz);
+				setNews(data);
 				setPending(false);
 			});
 	}, []);

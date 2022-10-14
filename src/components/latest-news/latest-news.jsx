@@ -14,18 +14,20 @@ import Schedule from './schedule/schedule';
 const LatestNews = ({ news, plan }) => {
 	const newsData = useSelector(getNewsData);
 
-	const [cityPlan, setCityPlan]= useState();
+	const [cityPlan, setCityPlan] = useState();
 
-	useEffect(()=>{
-		const options={
-			method:'GET', 
-			headers:{}
-		}
+	useEffect(() => {
+		const options = {
+			method: 'GET',
+			headers: {},
+		};
 
 		fetch(`https://turtkul41.herokuapp.com/home/ish_reja/`, options)
-		.then(response=>response.json())
-		.then(data=>{setCityPlan(data)})
-	},[])
+			.then((response) => response.json())
+			.then((data) => {
+				setCityPlan(data);
+			});
+	}, []);
 
 	return (
 		<Wrapper>
@@ -34,8 +36,8 @@ const LatestNews = ({ news, plan }) => {
 				<News newsData={newsData} />
 			</div>
 			<div>
-				<Title text={plan.title} />
-				<Schedule data={plan.data} />
+				<Title  text={plan.title} />
+				<Schedule data={cityPlan} />
 			</div>
 		</Wrapper>
 	);

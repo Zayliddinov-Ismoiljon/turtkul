@@ -24,15 +24,15 @@ const supportsSlice = createSlice({
   },
 });
 
-export const fetchSupports = createAsyncThunk("/murojatlar/", async () => {
-  const { data } = await getData("/murojatlar/");
+export const fetchSupports = createAsyncThunk("/services/Services_Appeal_Get", async () => {
+  const { data } = await getData("/services/Services_Appeal_Get");
   return data;
 });
 
 export const postSupports = createAsyncThunk(
-  "/murojatlar-create_advanced",
+  "/services/Services_Appeal",
   async (support) => {
-    await postData("/murojatlar-create_advanced/", support);
+    await postData("/services/Services_Appeal", {...support, file: null, date: "01.01.2"});
   }
 );
 

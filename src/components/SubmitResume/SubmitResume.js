@@ -49,7 +49,7 @@ const SubmitResume = () => {
 	const  onSubmit=(values)=> {
 		const options={
 			method:"POST",
-			// headers:{'Content-Type': 'application/json'},
+			headers:{'Content-Type': 'application/json'},
 			body: JSON.stringify(values)
 		}
 		fetch(`https://turtkul41.herokuapp.com/about_authority/Job_Applications_Model`, options)
@@ -59,24 +59,24 @@ const SubmitResume = () => {
 		}
 
 	const nations = [
-		('another', 'boshqa'),
-		('uzbek', "o'zbek"),
-		('qaraqalpoq', 'qoraqalpoq'),
-		('qirgyiz', "qirg'iz"),
-		('tadjik', 'tojik'),
-		('turkman', 'turkman'),
-		('qazaq', 'qozoq'),
-		('tatar', 'tatar'),
-		('rus', 'rus'),
-		('turk', 'turk'),
+		{key:'another',value: 'boshqa'},
+		{key:'uzbek',value: "o'zbek"},
+		{key:'qaraqalpoq',value: 'qoraqalpoq'},
+		{key:'qirgyiz',value: "qirg'iz"},
+		{key:'tadjik',value: 'tojik'},
+		{key:'turkman',value: 'turkman'},
+		{key:'qazaq',value: 'qozoq'},
+		{key:'tatar',value: 'tatar'},
+		{key:'rus',value: 'rus'},
+		{key:'turk',value: 'turk'},
 	];
 
 	const family_statuses = [
-		('uylangan', 'uylangan'),
-		('uylanmagan', 'uylanmagan'),
-		('turmush_qurgan', 'turmush_qurgan'),
-		('turmush_qurmagan', 'turmush_qurmagan'),
-		('ajrashgan', 'ajrashgan'),
+		{key: 'uylangan',value: 'uylangan'},
+		{key: 'uylanmagan',value: 'uylanmagan'},
+		{key: 'turmush_qurgan',value: 'turmush_qurgan'},
+		{key: 'turmush_qurmagan',value: 'turmush_qurmagan'},
+		{key: 'ajrashgan',value: 'ajrashgan'},
 	];
 
 
@@ -89,7 +89,7 @@ const SubmitResume = () => {
 
 	return (
 		<>
-			<Form layout='vertical' onFinish={onSubmit}>
+			<Form layout='vertical' onFinish={onSubmit} method='POST'>
 				<Form.Item name='vacancies' label='Бўш иш ўринлари *'>
 					<Select>
 						{currentVacancy.map((e, i) => (
@@ -103,15 +103,17 @@ const SubmitResume = () => {
 				<Row gutter={24}>
 					<Col span={8}>
 						<Form.Item name='birth' label='Дата рождения *'>
-							<DatePicker />
+							{/* <DatePicker /> */}
+							<Input type='date'/>
 						</Form.Item>
 					</Col>
 					<Col span={8}>
 						<Form.Item name='nation' label='Миллатингиз *'>
 							<Select>
-								{nations.map((e, i) => (
-									<Select.Option key={i} value={e}>
-										{e}
+								{nations.map((item) => (
+
+									<Select.Option key={item.key} value={item.key}>
+										{item.value}
 									</Select.Option>
 								))}
 							</Select>
@@ -120,9 +122,9 @@ const SubmitResume = () => {
 					<Col span={8}>
 						<Form.Item name='family_status' label='Оилавий аҳволингиз *'>
 							<Select>
-								{family_statuses.map((e, i) => (
-									<Select.Option key={i} value={e}>
-										{e}
+								{family_statuses.map((item) => (
+									<Select.Option key={item.key} value={item.key}>
+										{item.value}
 									</Select.Option>
 								))}
 							</Select>
@@ -159,7 +161,7 @@ const SubmitResume = () => {
 					</Col>
 					<Col span={8}>
 						<Form.Item name='ctir' label='СТИР рақамингиз *'>
-							<Input />
+							<Input maxLength={'14'} />
 						</Form.Item>
 					</Col>
 				</Row>
@@ -167,7 +169,7 @@ const SubmitResume = () => {
 					<Col span={8}>
 						<Form.Item name='educated' label='Маълумотингиз *'>
 							<Select>
-								<Select.Option value='higly'>Oliy</Select.Option>
+								<Select.Option value='highly'>Oliy</Select.Option>
 								<Select.Option value='medium_special'>O'rta-maxsus</Select.Option>
 								<Select.Option value='medium'>O'rta malumot</Select.Option>
 							</Select>
@@ -182,16 +184,16 @@ const SubmitResume = () => {
 				<Row gutter={24}>
 					<Col span={8}>
 						<Form.Item name='graduated_year' label='Қайси таълим муассасасини тамомлагансиз *'>
-							<Input placeholder='Йил' />
+							<Input placeholder='Йил' type='date'/>
 						</Form.Item>
 					</Col>
 					<Col span={16}>
 						<Form.Item name='educational_institution' label=' '>
 							<Input placeholder='Таълим муассасасини номи' />
 						</Form.Item>
-						<Form.Item name='date' label='yuborish vaqti'>
+						{/* <Form.Item name='date' label='yuborish vaqti'>
 							<Input type='date'/>
-						</Form.Item>
+						</Form.Item> */}
 					</Col>
 				</Row>
 				<Row gutter={24}>

@@ -68,13 +68,13 @@ const votesSlice = createSlice({
   },
 });
 
-export const fetchVotes = createAsyncThunk("/vote", async () => {
-  const { data } = await getData("/vote");
+export const fetchVotes = createAsyncThunk("/home/vote", async () => {
+  const { data } = await getData("/home/vote");
   return data;
 });
 
-export const postVote = createAsyncThunk("/get-vote", async (vote) => {
-  const { data } = await postData("/get-vote/", vote);
+export const postVote = createAsyncThunk("/home/get-vote", async (vote) => {
+  const { data } = await postData("/home/get-vote/", vote);
   return { data, vote };
 });
 

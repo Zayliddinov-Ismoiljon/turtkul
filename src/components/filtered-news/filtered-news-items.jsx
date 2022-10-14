@@ -8,16 +8,31 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const FilteredNewsItems = ({ news = [], newsFilter }) => {
+
+	console.log('newsfilter==yy', newsFilter);
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
 
-	console.log(news);
+	const [filterNews, setFilterNews]=useState([])
+
+	useEffect(()=>{
+		const options={
+			method:'GET', 
+			headers:{}
+		}
+
+		fetch(`https://turtkul41.herokuapp.com/${newsFilter}`, options)
+		.then(response=>response.json())
+		.then(data=>{setFilterNews(data); console.log('data==xxx', data);})
+	},[])
+
+	// console.log(news);
 	return (
 		<NewsWrapper>
-			{news?.length ? (
-				news.map((news_item, i) => (
+			{filterNews?.length ? (
+				filterNews.map((news_item, i) => (
 					<div data-aos='fade-right' key={i}>
 						<Link
 							to={

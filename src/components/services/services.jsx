@@ -15,11 +15,12 @@ import {
 	Wrapper,
 } from './services.style';
 import Title from 'components/title';
+import { Link } from 'react-router-dom';
 
 const Services = ({ services, comments }) => {
 	const optimazedData = services.data.map((service, index) => ({
 		icon: iconArray[index],
-		text: service,
+		service,
 	}));
 
 	const [comment, setComment] = useState([]);
@@ -42,10 +43,12 @@ const Services = ({ services, comments }) => {
 				<ServiceWrapper>
 					{optimazedData.map((item, id) => {
 						return (
-							<ServiceCard key={id}>
-								{item.icon}
-								<p>{item.text}</p>
+							<Link to={`/services/${item.service.type}`}>
+								<ServiceCard key={id}>
+								{item?.icon}
+								<p>{item?.service.title}</p>
 							</ServiceCard>
+							</Link>
 						);
 					})}
 				</ServiceWrapper>

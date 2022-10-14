@@ -10,7 +10,7 @@ const VotesItems = ({ votes = [], onVote, voting, btnsLanguage }) => {
   }
   let disabledVotes = localStorage.getItem("disabledVotes");
   disabledVotes = JSON.parse(disabledVotes);
-  console.log('votes',votes);
+ 
   return (
     <>
       {votes.map((item) => {

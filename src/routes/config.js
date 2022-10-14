@@ -32,8 +32,10 @@ import ManageOrganization from 'components/ManageOrganization/ManageOrganization
 import MeetingDeputy from 'components/MeetingDeputy/MeetingDeputy';
 import MeetingOrganization from 'components/MeetingOrganization/MeetingOrganization';
 import OpenData from 'components/OpenData/OpenData';
-import OpenSelections from 'components/OpenSelections/OpenSelections';
+import OpenMeeting from 'components/OpenMeeting/OpenMeeting';
 import PressServices from 'components/PressServices/PressServices';
+import Projects from 'components/Projects/Projects';
+import ProjectsId from 'components/Projects/ProjectsId/ProjectsId';
 import PublicCouncil from 'components/PublicCouncil/PublicCouncil';
 import CityTransport from 'components/services/CityTransport/CityTransport';
 import LicensingServices from 'components/services/LicensingServices/LicensingServices';
@@ -172,8 +174,8 @@ const routes = [
 				element: <EconomicIndicators />,
 			},
 			{
-				path: 'activity/open-selections',
-				element: <OpenSelections />,
+				path: 'activity/meetings',
+				element: <OpenMeeting />,
 			},
 			{
 				path: 'activity/statistical-reports',
@@ -184,8 +186,16 @@ const routes = [
 				element: <InternationalRelations />,
 			},
 			{
-				path: 'activity/sdsdf/:id',
+				path: 'activity/relation/:id',
 				element: <RelationDetail />,
+			},
+			{
+				path: 'activity/projects',
+				element: <Projects />,
+			},
+			{
+				path: 'activity/projects/:id',
+				element: <ProjectsId />,
 			},
 			{
 				path: 'meeting/board-activities',

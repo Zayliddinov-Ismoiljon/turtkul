@@ -73,10 +73,10 @@ export const fetchNews = createAsyncThunk(
       language: { activeLanguageName },
       news: { news, activeFilter },
     } = thunkAPI.getState();
-    if (news?.[activeLanguageName]?.[activeFilter]) {
-      thunkAPI.dispatch(setActiveFilter(filter));
-      return;
-    }
+    // if (news?.[activeLanguageName]?.[activeFilter]) {
+    //   thunkAPI.dispatch(setActiveFilter(filter));
+    //   return;
+    // }
     const { data } = await getData(
       // `${activeLanguageName}/${activeFilter || filter}`
       `/${activeFilter || filter}`

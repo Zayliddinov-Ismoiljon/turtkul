@@ -30,7 +30,6 @@ const Events = () => {
 		fetch(`https://turtkul41.herokuapp.com/home/uz/events/`, options)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log('eventsData', data);
 				setHomeEvents(data);
 			});
 	}, []);
