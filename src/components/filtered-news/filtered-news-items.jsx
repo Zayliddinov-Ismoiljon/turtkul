@@ -8,25 +8,25 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const FilteredNewsItems = ({ news = [], newsFilter }) => {
-
-	console.log('newsfilter==yy', newsFilter);
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
 
-	const [filterNews, setFilterNews]=useState([])
+	const [filterNews, setFilterNews] = useState([]);
 
-	useEffect(()=>{
-		const options={
-			method:'GET', 
-			headers:{}
-		}
+	useEffect(() => {
+		const options = {
+			method: 'GET',
+			headers: {},
+		};
 
 		fetch(`https://turtkul41.herokuapp.com/${newsFilter}`, options)
-		.then(response=>response.json())
-		.then(data=>{setFilterNews(data); console.log('data==xxx', data);})
-	},[])
+			.then((response) => response.json())
+			.then((data) => {
+				setFilterNews(data);
+			});
+	}, []);
 
 	// console.log(news);
 	return (
@@ -51,7 +51,7 @@ const FilteredNewsItems = ({ news = [], newsFilter }) => {
 										<img src={news_item.imagesown} alt='' />
 									</Grid>
 									<Grid item xs={12} sm={6} md={6} lg={6}>
-					 					<NewsInfo>
+										<NewsInfo>
 											<h4>{news_item.title}</h4>
 											<p
 												dangerouslySetInnerHTML={{
