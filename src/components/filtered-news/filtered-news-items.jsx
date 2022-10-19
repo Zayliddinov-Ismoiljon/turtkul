@@ -9,10 +9,13 @@ import 'aos/dist/aos.css';
 import { BASE_URL } from 'api/config';
 
 const FilteredNewsItems = ({ news = [], newsFilter }) => {
+
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
+
+	console.log('newsFilter', newsFilter);
 
 	const [filterNews, setFilterNews] = useState([]);
 
@@ -29,7 +32,6 @@ const FilteredNewsItems = ({ news = [], newsFilter }) => {
 			});
 	}, []);
 
-	// console.log(news);
 	return (
 		<NewsWrapper>
 			{filterNews?.length ? (

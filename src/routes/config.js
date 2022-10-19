@@ -93,6 +93,7 @@ const routes = [
 				path: 'news/:newsFilter',
 				element: <FilteredNews />,
 			},
+			
 			{
 				path: 'contacts',
 				element: <Contacts />,

@@ -91,7 +91,7 @@ searchNews = createAsyncThunk(
   "news/searchNews",
   async ({ search, activeLanguageName }) => {
     if (search) {
-      const { data } = await postData(`${activeLanguageName}/search/`, {
+      const { data } = await postData(`authority_news/search/`, {
         q: search,
       });
       return data;
