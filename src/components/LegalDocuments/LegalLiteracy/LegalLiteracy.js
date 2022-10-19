@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function LegalLiteracy() {
@@ -9,7 +10,7 @@ export default function LegalLiteracy() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Legal_literacy`,
+			`${BASE_URL}activity/Legal_Documents_Model/Legal_literacy`,
 			options,
 		)
 			.then((response) => response.json())

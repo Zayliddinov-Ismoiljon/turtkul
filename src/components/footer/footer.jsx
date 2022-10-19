@@ -12,6 +12,7 @@ import CallIcon from "@mui/icons-material/Call";
 import { useSelector } from "react-redux";
 import { getFooterData } from "store/reducer-and-action/language/language";
 import stiker from "assets/footerImg/stiker.PNG";
+import { BASE_URL } from "api/config";
 
 const Footer = () => {
   const footerData = useSelector(getFooterData);
@@ -23,7 +24,7 @@ const Footer = () => {
       headers:{}
     }
 
-    fetch(`https://turtkul41.herokuapp.com/home/footer/`, options)
+    fetch(`${BASE_URL}home/footer/`, options)
     .then(response=>response.json())
     .then(data=>{setFooter(data)})
   },[])

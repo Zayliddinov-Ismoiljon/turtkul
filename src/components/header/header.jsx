@@ -5,6 +5,7 @@ import Divider from '@mui/material/Divider';
 import { Wrapper } from './header.styles';
 import Skeleton from '@mui/material/Skeleton';
 import HeaderNews from './HeaderNews/HeaderNews';
+import { BASE_URL } from 'api/config';
 
 const Header = () => {
 	const [news, setNews] = useState([]);
@@ -17,7 +18,7 @@ const Header = () => {
 			headers: {},
 		};
 
-		fetch(`https://turtkul41.herokuapp.com/authority_news/last`, options)
+		fetch(`${BASE_URL}authority_news/last`, options)
 			.then((response) => response.json())
 			.then((data) => {
 				setNews(data);

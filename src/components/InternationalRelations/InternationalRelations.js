@@ -1,4 +1,5 @@
 import { Card, Col, Row } from 'antd';
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ export default function InternationalRelations() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models/International_Relations_Model/`,
+			`${BASE_URL}activity/models/International_Relations_Model/`,
 			options,
 		)
 			.then((response) => response.json())

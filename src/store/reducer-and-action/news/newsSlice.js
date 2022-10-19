@@ -86,7 +86,8 @@ export const fetchNews = createAsyncThunk(
   }
 );
 
-export const searchNews = createAsyncThunk(
+export const 
+searchNews = createAsyncThunk(
   "news/searchNews",
   async ({ search, activeLanguageName }) => {
     if (search) {

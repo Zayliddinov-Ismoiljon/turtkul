@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
 
 export default function AntiCorruption() {
@@ -11,7 +12,7 @@ export default function AntiCorruption() {
     };
 
     fetch(
-      `https://turtkul41.herokuapp.com/anti_corruption/Anticorruption_News`, options
+      `${BASE_URL}/anti_corruption/Anticorruption_News`, options
     )
       .then((response) => response.json())
       .then((data) => {setCorrupsiya(data);});

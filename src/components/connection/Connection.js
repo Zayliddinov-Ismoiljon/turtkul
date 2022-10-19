@@ -1,4 +1,5 @@
 import { Col, Row } from 'antd';
+import { BASE_URL } from 'api/config';
 import React, { useState, useEffect } from 'react';
 import Maps from './Maps';
 
@@ -11,7 +12,7 @@ export default function Connection() {
 		};
 
 		fetch(
-			`http://turtkul41.herokuapp.com/about_authority/models/Connection_Model`,
+			`${BASE_URL}/about_authority/models/Connection_Model`,
 			options,
 		)
 			.then((response) => response.json())

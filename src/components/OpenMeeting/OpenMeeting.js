@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
 
 export default function OpenMeeting() {
@@ -9,7 +10,7 @@ export default function OpenMeeting() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models/Open_Selections_Model/`,
+			`${BASE_URL}activity/models/Open_Selections_Model/`,
 			options,
 		)
 			.then((response) => response.json())

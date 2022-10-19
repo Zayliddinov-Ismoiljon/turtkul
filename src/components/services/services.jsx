@@ -16,6 +16,7 @@ import {
 } from './services.style';
 import Title from 'components/title';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from 'api/config';
 
 const Services = ({ services, comments }) => {
 	const optimazedData = services.data.map((service, index) => ({
@@ -30,7 +31,7 @@ const Services = ({ services, comments }) => {
 			headers: {},
 		};
 
-		fetch(`https://turtkul41.herokuapp.com/home/comment/`, options)
+		fetch(`${BASE_URL}home/comment/`, options)
 			.then((response) => response.json())
 			.then((data) => {
 				setComment(data);

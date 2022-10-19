@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
 
 export default function ActionStrategy() {
@@ -10,7 +11,7 @@ export default function ActionStrategy() {
       headers:{}
     }
 
-    fetch(`https://turtkul41.herokuapp.com/activity/models/Action_Strategy_Model/`, options)
+    fetch(`${BASE_URL}/activity/models/Action_Strategy_Model/`, options)
     .then(response=>response.json())
     .then(data=>{setStrategy(data)})
   },[])

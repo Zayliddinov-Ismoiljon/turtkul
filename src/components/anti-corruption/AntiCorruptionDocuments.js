@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function AntiCorruptionDocuments() {
@@ -10,7 +11,7 @@ export default function AntiCorruptionDocuments() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/anti_corruption/Anticorruption_Documents`,
+			`${BASE_URL}/anti_corruption/Anticorruption_Documents`,
 			options,
 		)
 			.then((response) => response.json())

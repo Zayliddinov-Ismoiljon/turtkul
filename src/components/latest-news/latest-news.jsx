@@ -1,4 +1,5 @@
 import { Divider } from '@mui/material';
+import { BASE_URL } from 'api/config';
 import Title from 'components/title';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -22,7 +23,7 @@ const LatestNews = ({ news, plan }) => {
 			headers: {},
 		};
 
-		fetch(`https://turtkul41.herokuapp.com/home/ish_reja/`, options)
+		fetch(`${BASE_URL}home/ish_reja/`, options)
 			.then((response) => response.json())
 			.then((data) => {
 				setCityPlan(data);

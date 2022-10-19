@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function Business() {
@@ -9,7 +10,7 @@ export default function Business() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models/Entrepreneurship_Business_Model/`,
+			`${BASE_URL}/activity/models/Entrepreneurship_Business_Model/`,
 			options,
 		)
 			.then((response) => response.json())

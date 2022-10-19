@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
 
 export default function NormativeLegal() {
@@ -9,7 +10,7 @@ export default function NormativeLegal() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Normative_legal_acts_of_district_hokimiyats`,
+			`${BASE_URL}activity/Legal_Documents_Model/Normative_legal_acts_of_district_hokimiyats`,
 			options,
 		)
 			.then((response) => response.json())

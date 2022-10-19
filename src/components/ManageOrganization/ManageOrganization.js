@@ -1,4 +1,5 @@
 import { Button, Card, Col, Modal, Row } from 'antd';
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function ManageOrganization() {
@@ -10,7 +11,7 @@ export default function ManageOrganization() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/about_authority/Management/manage_organization`,
+			`${BASE_URL}about_authority/Management/manage_organization`,
 			options,
 		)
 			.then((response) => response.json())

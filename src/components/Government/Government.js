@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, {useState, useEffect} from 'react'
 
 export default function Government() {
@@ -13,7 +14,7 @@ export default function Government() {
     };
 
     fetch(
-      `http://turtkul41.herokuapp.com/about_authority/models/Electronic_Government_Model`, options
+      `${BASE_URL}/about_authority/models/Electronic_Government_Model`, options
     )
       .then((response) => response.json())
       .then((data) => {setEGovernment(data)});

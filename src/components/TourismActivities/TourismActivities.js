@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function TourismActivities() {
@@ -9,7 +10,7 @@ export default function TourismActivities() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models/Tourism_Activities_Model/`,
+			`${BASE_URL}activity/models/Tourism_Activities_Model/`,
 			options,
 		)
 			.then((response) => response.json())

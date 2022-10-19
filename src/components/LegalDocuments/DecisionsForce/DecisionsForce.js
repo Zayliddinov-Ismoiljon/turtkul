@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function DecisionsForce() {
@@ -9,7 +10,7 @@ export default function DecisionsForce() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Decisions_that_have_lost_their_force`,
+			`${BASE_URL}activity/Legal_Documents_Model/Decisions_that_have_lost_their_force`,
 			options,
 		)
 			.then((response) => response.json())

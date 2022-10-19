@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -13,7 +14,7 @@ export default function ProjectsId() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models_news/Projects_Model/${id}`,
+			`${BASE_URL}activity/models_news/Projects_Model/${id}`,
 			options,
 		)
 			.then((response) => response.json())

@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import Loader from 'components/common/loader/loader';
 import { useEffect, useState } from 'react';
 import { MdOutlineWatchLater } from 'react-icons/md';
@@ -22,7 +23,7 @@ const News = ({ newsData = [] }) => {
 			headers: {},
 		};
 
-		fetch(`http://turtkul41.herokuapp.com/authority_news/last`, options)
+		fetch(`${BASE_URL}authority_news/last`, options)
 			.then((response) => response.json())
 			.then((data) => {
 				setNews(data);

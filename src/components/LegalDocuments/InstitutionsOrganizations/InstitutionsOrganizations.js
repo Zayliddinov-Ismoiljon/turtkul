@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function InstitutionsOrganizations() {
@@ -11,7 +12,7 @@ export default function InstitutionsOrganizations() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Procedure_for_allocating_land_plots_for_use_or_lease_to_enterprises_institutions_organizations`,
+			`${BASE_URL}activity/Legal_Documents_Model/Procedure_for_allocating_land_plots_for_use_or_lease_to_enterprises_institutions_organizations`,
 			options,
 		)
 			.then((response) => response.json())

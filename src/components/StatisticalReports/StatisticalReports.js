@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
 
 export default function StatisticalReports() {
@@ -9,7 +10,7 @@ export default function StatisticalReports() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models/Statistical_Reports_Model/`,
+			`${BASE_URL}activity/models/Statistical_Reports_Model/`,
 			options,
 		)
 			.then((response) => response.json())

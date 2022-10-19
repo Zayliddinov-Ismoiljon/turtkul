@@ -1,4 +1,5 @@
 import { List, Card, Row, Col } from 'antd';
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ export default function LegalDocuments() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Categories/`,
+			`${BASE_URL}activity/Legal_Documents_Categories/`,
 			options,
 		)
 			.then((response) => response.json())

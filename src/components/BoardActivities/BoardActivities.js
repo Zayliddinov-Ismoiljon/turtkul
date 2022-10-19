@@ -1,4 +1,5 @@
 import { Card } from 'antd';
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,7 +11,7 @@ export default function BoardActivities() {
 			headers: {},
 		};
 
-		fetch(`http://turtkul41.herokuapp.com/meeting/Meeting_News`, options)
+		fetch(`${BASE_URL}/meeting/Meeting_News`, options)
 			.then((response) => response.json())
 			.then((data) => setBoardActivities(data));
 	}, []);

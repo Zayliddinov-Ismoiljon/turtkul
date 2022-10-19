@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function LawsRepublicUz() {
@@ -9,7 +10,7 @@ export default function LawsRepublicUz() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Laws_of_the_Republic_of_Uzbekistan`,
+			`${BASE_URL}activity/Legal_Documents_Model/Laws_of_the_Republic_of_Uzbekistan`,
 			options,
 		)
 			.then((response) => response.json())

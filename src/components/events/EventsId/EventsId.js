@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -12,7 +13,7 @@ export default function EventsId() {
 			headers: {},
 		};
 
-		fetch(`https://turtkul41.herokuapp.com/home/uz/events/${id}`, options)
+		fetch(`${BASE_URL}/home/uz/events/${id}`, options)
 			.then((response) => response.json())
 			.then((data) => {
         setEventsId(data)

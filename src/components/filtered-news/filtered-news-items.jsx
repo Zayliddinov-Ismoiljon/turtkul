@@ -6,6 +6,7 @@ import NotFound from 'components/not-found/not-found';
 import EventIcon from '@mui/icons-material/Event';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { BASE_URL } from 'api/config';
 
 const FilteredNewsItems = ({ news = [], newsFilter }) => {
 	useEffect(() => {
@@ -21,7 +22,7 @@ const FilteredNewsItems = ({ news = [], newsFilter }) => {
 			headers: {},
 		};
 
-		fetch(`https://turtkul41.herokuapp.com/${newsFilter}`, options)
+		fetch(`${BASE_URL}${newsFilter}`, options)
 			.then((response) => response.json())
 			.then((data) => {
 				setFilterNews(data);

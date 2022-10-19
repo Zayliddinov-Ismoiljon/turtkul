@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Title, Wrapper } from "./asked-questions.style";
 import { QuestionsData } from "./questions-data";
+import { BASE_URL } from "api/config";
 
 const AskedQuestions = () => {
   const [askedQuestions, setAskedQuestions]= React.useState(QuestionsData);
@@ -15,7 +16,7 @@ const AskedQuestions = () => {
       headers:{}
     }
 
-    fetch(`https://turtkul41.herokuapp.com/services/Services_Questions`, options)
+    fetch(`${BASE_URL}/services/Services_Questions`, options)
     .then(response=>response.json())
     .then(data=>setAskedQuestions(data))
   },[])

@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function EconomicIndicators() {
@@ -9,7 +10,7 @@ export default function EconomicIndicators() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models/Economic_Indicators_Model/`,
+			`${BASE_URL}/activity/models/Economic_Indicators_Model/`,
 			options,
 		)
 			.then((response) => response.json())

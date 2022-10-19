@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function OpenData() {
@@ -9,7 +10,7 @@ export default function OpenData() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models/Open_Data_Model/`,
+			`${BASE_URL}activity/models/Open_Data_Model/`,
 			options,
 		)
 			.then((response) => response.json())

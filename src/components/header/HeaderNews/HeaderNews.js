@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Carousel } from 'antd';
+import { BASE_URL } from 'api/config';
 
 export default function HeaderNews() {
 	const [headerNewsId, setHeaderNewsId] = useState([]);
@@ -13,7 +14,7 @@ export default function HeaderNews() {
 			headers: {},
 		};
 
-		fetch(`https://turtkul41.herokuapp.com/authority_news/${id}`, options)
+		fetch(`${BASE_URL}authority_news/${id}`, options)
 			.then((response) => response.json())
 			.then((data) => {
 				setHeaderNewsId(data);

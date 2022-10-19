@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function FightingCorruption() {
@@ -9,7 +10,7 @@ export default function FightingCorruption() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Fighting_corruption`,
+			`${BASE_URL}activity/Legal_Documents_Model/Fighting_corruption`,
 			options,
 		)
 			.then((response) => response.json())

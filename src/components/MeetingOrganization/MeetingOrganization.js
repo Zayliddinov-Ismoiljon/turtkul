@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function MeetingOrganization() {
@@ -8,7 +9,7 @@ export default function MeetingOrganization() {
 			headers: {},
 		};
 		fetch(
-			`https://turtkul41.herokuapp.com/meeting/Meeting_Organization`,
+			`${BASE_URL}meeting/Meeting_Organization`,
 			options,
 		)
 			.then((response) => response.json())

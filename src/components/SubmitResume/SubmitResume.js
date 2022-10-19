@@ -21,6 +21,7 @@ import {
 	Col,
 } from 'antd';
 import { set } from 'react-hook-form';
+import { BASE_URL } from 'api/config';
 
 const { TextArea } = Input;
 
@@ -35,7 +36,7 @@ const SubmitResume = () => {
 		};
 
 		fetch(
-			`http://turtkul41.herokuapp.com/about_authority/Vacancies_Model`,
+			`${BASE_URL}about_authority/Vacancies_Model`,
 			options,
 		)
 			.then((response) => response.json())
@@ -52,7 +53,7 @@ const SubmitResume = () => {
 			headers:{'Content-Type': 'application/json'},
 			body: JSON.stringify(values)
 		}
-		fetch(`https://turtkul41.herokuapp.com/about_authority/Job_Applications_Model`, options)
+		fetch(`${BASE_URL}about_authority/Job_Applications_Model`, options)
 		.then(response=>response.json())
 		.then(data=>setPostSubmit(data))
 

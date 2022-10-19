@@ -1,6 +1,7 @@
 import * as React from "react";
 import PaginationRounded from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { BASE_URL } from "api/config";
 
 export default function Pagination() { 
    const [count, setCount]= React.useState([]);
@@ -10,7 +11,7 @@ export default function Pagination() {
          headers:{}
       }
 
-      fetch(`https://turtkul41.herokuapp.com/authority_news/count`, options)
+      fetch(`${BASE_URL}/authority_news/count`, options)
       .then(response=>response.json())
       .then(data=>{setCount(data);})
    },[])

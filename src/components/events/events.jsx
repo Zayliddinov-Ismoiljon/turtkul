@@ -27,7 +27,7 @@ const Events = () => {
 			headers: {},
 		};
 
-		fetch(`https://turtkul41.herokuapp.com/home/uz/events/`, options)
+		fetch(`${BASE_URL}/home/uz/events/`, options)
 			.then((response) => response.json())
 			.then((data) => {
 				setHomeEvents(data);

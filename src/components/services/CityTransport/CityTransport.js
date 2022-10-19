@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config'
 import React, { useEffect, useState } from 'react'
 
 export default function CityTransport() {
@@ -9,7 +10,7 @@ export default function CityTransport() {
       headers:{}
     }
 
-    fetch(`https://turtkul41.herokuapp.com/services/Services_Transport`, options)
+    fetch(`${BASE_URL}services/Services_Transport`, options)
     .then(response=>response.json())
     .then(data=>{console.log('cityTransportData=>', data); setCityTransport(data)})
   },[])

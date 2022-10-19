@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function MeetingDeputy() {
@@ -8,7 +9,7 @@ export default function MeetingDeputy() {
 			headers: {},
 		};
 
-		fetch(`https://turtkul41.herokuapp.com/meeting/Meeting_Deputy`, options)
+		fetch(`${BASE_URL}meeting/Meeting_Deputy`, options)
 			.then((response) => response.json())
 			.then((data) => setMeetingDeputy(data));
 	}, []);

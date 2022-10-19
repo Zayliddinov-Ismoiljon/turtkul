@@ -1,4 +1,5 @@
 import { Button, Card, Col, Modal, Row } from 'antd';
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ export default function AboutGov() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/about_authority/Management/about_gov`,
+			`${BASE_URL}about_authority/Management/about_gov`,
 			options,
 		)
 			.then((response) => response.json())

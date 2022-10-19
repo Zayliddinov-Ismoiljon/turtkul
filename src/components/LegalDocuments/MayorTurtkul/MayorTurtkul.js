@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
 
 export default function MayorTurtkul() {
@@ -9,7 +10,7 @@ export default function MayorTurtkul() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Decisions_and_Orders_of_the_Mayor_of_Turtkul`,
+			`${BASE_URL}activity/Legal_Documents_Model/Decisions_and_Orders_of_the_Mayor_of_Turtkul`,
 			options,
 		)
 			.then((response) => response.json())

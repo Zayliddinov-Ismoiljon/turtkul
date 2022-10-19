@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function InvestmentPotential() {
@@ -10,7 +11,7 @@ export default function InvestmentPotential() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/models/Investment_Potential_Model/`,
+			`${BASE_URL}activity/models/Investment_Potential_Model/`,
 			options,
 		)
 			.then((response) => response.json())

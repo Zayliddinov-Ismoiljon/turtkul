@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config'
 import React, { useEffect, useState } from 'react'
 
 export default function LicensingServices() {
@@ -8,7 +9,7 @@ export default function LicensingServices() {
       headers:{}
     }
 
-    fetch(`https://turtkul41.herokuapp.com/services/Services_Licence`, options)
+    fetch(`${BASE_URL}services/Services_Licence`, options)
     .then(response=>response.json())
     .then(data=> {setLicensingServices(data); console.log(licensingServices);})
   },[])

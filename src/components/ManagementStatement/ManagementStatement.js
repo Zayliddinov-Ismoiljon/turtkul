@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function ManagementStatement() {
@@ -9,7 +10,7 @@ export default function ManagementStatement() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/about_authority/models/Management_Statements_Model`,
+			`${BASE_URL}about_authority/models/Management_Statements_Model`,
 			options,
 		)
 			.then((response) => response.json())

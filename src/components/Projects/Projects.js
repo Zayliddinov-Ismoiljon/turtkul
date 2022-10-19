@@ -1,4 +1,5 @@
 import { Card } from 'antd'
+import { BASE_URL } from 'api/config'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -10,7 +11,7 @@ export default function Projects() {
       headers:{}
     }
 
-    fetch(`https://turtkul41.herokuapp.com/activity/models/Projects_Model/`, options)
+    fetch(`${BASE_URL}activity/models/Projects_Model/`, options)
     .then(response=>response.json())
     .then(data=>{setProjects(data)})
   },[])

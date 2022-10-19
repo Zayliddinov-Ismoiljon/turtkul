@@ -48,7 +48,7 @@ export default function FilteredNews() {
 						{filterBar.map(({ title, route }) => (
 							<Tab
 								key={route}
-								label={title}
+								label={title}  
 								onClick={() => {handleChange(route); }}
 								value={route}
 							/>

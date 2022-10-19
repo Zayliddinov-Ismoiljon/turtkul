@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 
 export default function UnderDevelopment() {
@@ -9,7 +10,7 @@ export default function UnderDevelopment() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Discussion_of_NHHs_under_development`,
+			`${BASE_URL}activity/Legal_Documents_Model/Discussion_of_NHHs_under_development`,
 			options,
 		)
 			.then((response) => response.json())

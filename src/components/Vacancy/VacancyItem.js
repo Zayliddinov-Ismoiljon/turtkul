@@ -5,6 +5,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { BASE_URL } from 'api/config';
 
 const useStyles = makeStyles({
 	root: {
@@ -26,7 +27,7 @@ export default function ActionsInAccordionSummary({ setActiveKey }) {
 		};
 
 		fetch(
-			`http://turtkul41.herokuapp.com/about_authority/Vacancies_Model`,
+			`${BASE_URL}about_authority/Vacancies_Model`,
 			options,
 		)
 			.then((response) => response.json())

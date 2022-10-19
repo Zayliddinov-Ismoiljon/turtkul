@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
 
 export default function BusinessDecisions() {
@@ -9,7 +10,7 @@ export default function BusinessDecisions() {
 		};
 
 		fetch(
-			`https://turtkul41.herokuapp.com/activity/Legal_Documents_Model/Business_decisions`,
+			`${BASE_URL}activity/Legal_Documents_Model/Business_decisions`,
 			options,
 		)
 			.then((response) => response.json())

@@ -1,3 +1,4 @@
+import { BASE_URL } from 'api/config'
 import React, { useEffect, useState } from 'react'
 
 export default function LocalBudjet() {
@@ -9,7 +10,7 @@ export default function LocalBudjet() {
       headers:{}
     }
 
-    fetch(`https://turtkul41.herokuapp.com/services/Services_Budget`, options)
+    fetch(`${BASE_URL}services/Services_Budget`, options)
     .then(response=>response.json())
     .then(data=> {console.log('data===>>', data); setLocalBudjet(data)})
   },[])
