@@ -16,6 +16,7 @@ const initialState = {
   searchNews: {},
   searchNewsPending: false,
   searchNewsError: "",
+  newsCount:{}
 };
 
 const newsSlice = createSlice({
@@ -26,23 +27,19 @@ const newsSlice = createSlice({
       state.activeFilter = action.payload;
       state.pending = false;
     },
+    setNewsCount(state, action) {
+      state.newsCount = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchNews.fulfilled, (state, action) => {
-      if (action.payload?.data)
-        state.news = {
-          ...state.news,
-          [action.payload?.activeLanguageName]: {
-            ...state.news[action.payload?.activeLanguageName],
-            [state.activeFilter]: [
-              ...action.payload?.data.map((item) => ({
-                ...item,
-                imagesown: DEFAULT_IMAGE,
-              })),
-            ],
-          },
-        };
-      state.fulfilled = true;
+      if (action.payload)
+      state.news = {
+        ...state.news,
+        [state.activeFilter]: [...action.payload, ...state.news?.[state?.activeFilter]?state.news[state?.activeFilter]:[]]
+        
+      };
+      state.pending = false;
     });
     builder.addCase(fetchNews.pending, (state, action) => {
       state.pending = true;
@@ -70,19 +67,14 @@ export const fetchNews = createAsyncThunk(
   "news/fetchByFilter",
   async (filter, thunkAPI) => {
     const {
-      language: { activeLanguageName },
-      news: { news, activeFilter },
+      news: { news, },
     } = thunkAPI.getState();
-    // if (news?.[activeLanguageName]?.[activeFilter]) {
-    //   thunkAPI.dispatch(setActiveFilter(filter));
-    //   return;
-    // }
+   
     const { data } = await getData(
-      // `${activeLanguageName}/${activeFilter || filter}`
-      `/${activeFilter || filter}`
+      `/${filter}`
     );
-    thunkAPI.dispatch(setActiveFilter(filter));
-    return { activeLanguageName, data };
+
+    return  data;
   }
 );
 
@@ -100,9 +92,8 @@ searchNews = createAsyncThunk(
 );
 
 export const getNewsData = createSelector(
-  (state) => state,
-  ({ language: { activeLanguageName }, news: { activeFilter, news } }) =>
-    news?.[activeLanguageName]?.[activeFilter]
+  (state) => state.news,
+ ({news,activeFilter})=>news?.[activeFilter]
 );
 
 export const getActiveFilter = createSelector(
@@ -118,6 +109,6 @@ export const getSearchResult = createSelector(
   (news) => [news.searchNews, news.searchNewsPending]
 );
 
-export const { setActiveFilter } = newsSlice.actions;
+export const { setActiveFilter,setNewsCount } = newsSlice.actions;
 
 export default newsSlice.reducer;

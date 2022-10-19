@@ -6,9 +6,10 @@ import NotFound from 'components/not-found/not-found';
 import EventIcon from '@mui/icons-material/Event';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { BASE_URL } from 'api/config';
 
 const FilteredNewsItems = ({ news = [], newsFilter }) => {
+
+	console.log("asda",news)
 
 	useEffect(() => {
 		AOS.init();
@@ -17,25 +18,12 @@ const FilteredNewsItems = ({ news = [], newsFilter }) => {
 
 	console.log('newsFilter', newsFilter);
 
-	const [filterNews, setFilterNews] = useState([]);
-
-	useEffect(() => {
-		const options = {
-			method: 'GET',
-			headers: {},
-		};
-
-		fetch(`${BASE_URL}${newsFilter}`, options)
-			.then((response) => response.json())
-			.then((data) => {
-				setFilterNews(data);
-			});
-	}, []);
+	
 
 	return (
 		<NewsWrapper>
-			{filterNews?.length ? (
-				filterNews.map((news_item, i) => (
+			{news?.length ? (
+				news.map((news_item, i) => (
 					<div data-aos='fade-right' key={i}>
 						<Link
 							to={

@@ -13,32 +13,46 @@ import {
 } from './../../store/reducer-and-action/news/newsSlice';
 import Pagination from './pagination/pagination';
 import Loader from 'components/common/loader/loader';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { getActiveFilter } from 'store/reducer-and-action/news/newsSlice';
+import { useNavigate, useParams } from 'react-router-dom';
+
 
 export default function FilteredNews() {
 	const news = useSelector(getNewsData);
 	const filterBar = useSelector(getFilterBarData);
 	const pending = useSelector(getNewsStatus);
 	const dispatch = useDispatch();
-	const { pathname } = useLocation();
 	const [activeFiterTab, setActiveFilterTab] = useState(filterBar[0].route);
 	const navigate = useNavigate();
+
+
+	const [page,setPage]=useState(1)
+
+
+	const {newsFilter} = useParams()
 
 	const handleChange = useCallback(
 		(filter) => {
 			setActiveFilterTab(filter);
-			dispatch(fetchNews('authority_news/filter/' + filter));
+			dispatch(setActiveFilter(filter))
+			dispatch(fetchNews(`authority_news/models/${filter}/${page}`));
 			navigate(`/news/${filter}`);
 		},
-		[dispatch, navigate],
+		[dispatch, navigate, page],
 	);
-	useEffect(() => {
-		const filter = pathname.split('/').pop();
-		if (filterBar.some((item) => item.route === filter)) handleChange(filter);
-	}, [dispatch, filterBar, handleChange, pathname]);
+	useEffect(()=>{
+		handleChange(newsFilter)
+	},[dispatch, handleChange, newsFilter])
+	
 
-	const newsFilter = useSelector(getActiveFilter);
+	console.log("asdasdasdasd",news)
+
+const onPaginate=(pageId)=>{
+setPage(pageId)
+}
+
+
+
+
 
 	return (
 		<Wrapper>
@@ -61,7 +75,7 @@ export default function FilteredNews() {
 					<FilteredNewsItems news={news} newsFilter={newsFilter} />
 				)}
 			</Box>
-			<Pagination />
+			<Pagination onPaginate={onPaginate} />
 		</Wrapper>
 	);
 }
