@@ -36,7 +36,7 @@ const newsSlice = createSlice({
       if (action.payload)
       state.news = {
         ...state.news,
-        [state.activeFilter]: [...action.payload, ...state.news?.[state?.activeFilter]?state.news[state?.activeFilter]:[]]
+        [state.activeFilter]: [...action.payload]
         
       };
       state.pending = false;
