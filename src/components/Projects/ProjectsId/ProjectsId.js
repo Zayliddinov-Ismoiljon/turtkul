@@ -1,6 +1,7 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { ProjectsIdStyled } from './ProjectsId.styles';
 
 export default function ProjectsId() {
 	const [projectsId, setProjectsId] = useState([]);
@@ -23,7 +24,7 @@ export default function ProjectsId() {
 			});
 	}, []);
 	return (
-		<>
+		<ProjectsIdStyled>
 			<div
 				id='carouselExampleControls'
 				class='carousel slide'
@@ -31,6 +32,7 @@ export default function ProjectsId() {
 				<div class='carousel-inner'>
 					<div class='carousel-item active'>
 						<img
+						className='carusel-img1'
 							style={{ width: '100%', height: '700px' }}
 							src={projectsId[0]?.image}
 							class='d-block w-100'
@@ -40,7 +42,7 @@ export default function ProjectsId() {
 					{projectsId[1]?.map((item, i) => (
 						<div key={i} class='carousel-item'>
 							<img
-								style={{ width: '100%', height: '700px' }}
+								className='carusel-img2'
 								src={item}
 								alt=''
 							/>
@@ -64,8 +66,8 @@ export default function ProjectsId() {
 					<span class='visually-hidden'>Next</span>
 				</button>
 			</div>
-			<h3>{projectsId[0]?.title}</h3>
+			<h3 className='projectid-title'>{projectsId[0]?.title}</h3>
 			<div dangerouslySetInnerHTML={{ __html: `${projectsId[0]?.body}` }} />
-		</>
+		</ProjectsIdStyled>
 	);
 }

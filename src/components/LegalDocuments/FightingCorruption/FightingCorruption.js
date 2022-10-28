@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { FightingCorruptionStyled } from './FightingCorruption.styles';
 
 export default function FightingCorruption() {
 	const [fightingCorruption, setFightingCorruption] = useState([]);
@@ -17,10 +18,10 @@ export default function FightingCorruption() {
 			.then((data) => setFightingCorruption(data));
 	}, []);
 	return (
-		<>
-			<h3>{fightingCorruption.title}</h3>
+		<FightingCorruptionStyled>
+			<h3 className='fighting-title'>{fightingCorruption.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${fightingCorruption.body}` }} />
 			<time>{fightingCorruption.date}</time>
-		</>
+		</FightingCorruptionStyled>
 	);
 }

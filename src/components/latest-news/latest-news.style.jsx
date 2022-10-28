@@ -8,6 +8,8 @@ export const Title = styled.h2`
 
 export const Wrapper = styled.div`
   display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
   gap: 40px;
   div:first-child {
     flex: 1.75;

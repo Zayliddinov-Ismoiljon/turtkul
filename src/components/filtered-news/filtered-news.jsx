@@ -15,7 +15,6 @@ import Pagination from './pagination/pagination';
 import Loader from 'components/common/loader/loader';
 import { useNavigate, useParams } from 'react-router-dom';
 
-
 export default function FilteredNews() {
 	const news = useSelector(getNewsData);
 	const filterBar = useSelector(getFilterBarData);
@@ -24,35 +23,30 @@ export default function FilteredNews() {
 	const [activeFiterTab, setActiveFilterTab] = useState(filterBar[0].route);
 	const navigate = useNavigate();
 
-
-	const [page,setPage]=useState(1)
-
-
-	const {newsFilter} = useParams()
+	const [page, setPage] = useState(1);
+	const { newsFilter } = useParams();
 
 	const handleChange = useCallback(
 		(filter) => {
 			setActiveFilterTab(filter);
-			dispatch(setActiveFilter(filter))
+			dispatch(setActiveFilter(filter));
 			dispatch(fetchNews(`authority_news/models/${filter}/${page}`));
 			navigate(`/news/${filter}`);
 		},
 		[dispatch, navigate, page],
 	);
-	useEffect(()=>{
-		handleChange(newsFilter)
-	},[dispatch, handleChange, newsFilter])
-	
+	useEffect(() => {
+		navigate(`/news/all`);
+		handleChange(newsFilter);
+	}, [dispatch, handleChange, newsFilter]);
 
-	console.log("asdasdasdasd",news)
+	useEffect(() => {
+		navigate(`/news/all`);
+	}, []);
 
-const onPaginate=(pageId)=>{
-setPage(pageId)
-}
-
-
-
-
+	const onPaginate = (pageId) => {
+		setPage(pageId);
+	};
 
 	return (
 		<Wrapper>
@@ -62,8 +56,10 @@ setPage(pageId)
 						{filterBar.map(({ title, route }) => (
 							<Tab
 								key={route}
-								label={title}  
-								onClick={() => {handleChange(route); }}
+								label={title}
+								onClick={() => {
+									handleChange(route);
+								}}
 								value={route}
 							/>
 						))}

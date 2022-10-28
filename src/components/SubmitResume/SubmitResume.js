@@ -26,7 +26,7 @@ import { BASE_URL } from 'api/config';
 const { TextArea } = Input;
 
 const SubmitResume = () => {
-
+	const [form] = Form.useForm()
 	const [currentVacancy, setCurrentVacancy] = useState([]);
 
 	useEffect(() => {
@@ -55,7 +55,8 @@ const SubmitResume = () => {
 		}
 		fetch(`${BASE_URL}about_authority/Job_Applications_Model`, options)
 		.then(response=>response.json())
-		.then(data=>setPostSubmit(data))
+		.then(data=>{setPostSubmit(data);
+		form.resetFields()})
 
 		}
 
@@ -90,7 +91,7 @@ const SubmitResume = () => {
 
 	return (
 		<>
-			<Form layout='vertical' onFinish={onSubmit} method='POST'>
+			<Form layout='vertical' form={form} onFinish={onSubmit} method='POST'>
 				<Form.Item name='vacancies' label='Бўш иш ўринлари *'>
 					<Select>
 						{currentVacancy.map((e, i) => (
@@ -102,13 +103,13 @@ const SubmitResume = () => {
 					<Input placeholder='Фамилияси Исми Отасининг исми' />
 				</Form.Item>
 				<Row gutter={24}>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='birth' label='Дата рождения *'>
 							{/* <DatePicker /> */}
 							<Input type='date'/>
 						</Form.Item>
 					</Col>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='nation' label='Миллатингиз *'>
 							<Select>
 								{nations.map((item) => (
@@ -120,7 +121,7 @@ const SubmitResume = () => {
 							</Select>
 						</Form.Item>
 					</Col>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='family_status' label='Оилавий аҳволингиз *'>
 							<Select>
 								{family_statuses.map((item) => (
@@ -133,41 +134,41 @@ const SubmitResume = () => {
 					</Col>
 				</Row>
 				<Row gutter={24}>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='addres' label='Яшаш манзилингиз *'>
 							<Input />
 						</Form.Item>
 					</Col>
-					<Col span={8}>
-						<Form.Item  label='Манзил'>
+					<Col xs={24} sm={8} md={8} lg={8}>
+						<Form.Item  label='Манзил' >
 							<Input placeholder='Manzil' />
 						</Form.Item>
 					</Col>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item  label=' '>
 							<Input placeholder='Manzil' />
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={24}>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='phone' label='Telefon *'>
 							<Input />
 						</Form.Item>
 					</Col>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='email' label='E-pochta *'>
 							<Input />
 						</Form.Item>
 					</Col>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='ctir' label='СТИР рақамингиз *'>
 							<Input maxLength={'14'} />
 						</Form.Item>
 					</Col>
 				</Row>
 				<Row gutter={24}>
-					<Col span={8}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='educated' label='Маълумотингиз *'>
 							<Select>
 								<Select.Option value='highly'>Oliy</Select.Option>
@@ -176,19 +177,19 @@ const SubmitResume = () => {
 							</Select>
 						</Form.Item>
 					</Col>
-					<Col span={16}>
+					<Col xs={24} sm={16} md={16} lg={16}>
 						<Form.Item name='specialty' label=' Мутахассислигингиз *'>
 							<Input />
 						</Form.Item>
 					</Col>
 				</Row>
-				<Row gutter={24}>
-					<Col span={8}>
+				<Row gutter={[12,12]}>
+					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='graduated_year' label='Қайси таълим муассасасини тамомлагансиз *'>
 							<Input placeholder='Йил' type='date'/>
 						</Form.Item>
 					</Col>
-					<Col span={16}>
+					<Col xs={24} sm={16} md={16} lg={16}>
 						<Form.Item name='educational_institution' label=' '>
 							<Input placeholder='Таълим муассасасини номи' />
 						</Form.Item>
@@ -198,12 +199,12 @@ const SubmitResume = () => {
 					</Col>
 				</Row>
 				<Row gutter={24}>
-					<Col span={12}>
+					<Col xs={24} sm={12} md={12} lg={12}>
 						<Form.Item label='Ишга киришишдан мамнунмиз'>
 							<TextArea rows={5} placeholder='Ушбу банд жуда муҳим! Уни қай даражада қисқа ва мазмунли ёритишингизга қараб, давлат солиқ хизмати тизимида ўрин топишингизда хулоса чиқарилади.'/>
 						</Form.Item>
 					</Col>
-          <Col span={12}>
+          <Col xs={24} sm={12} md={12} lg={12}>
 						<Form.Item name='additional_info' label='Қўшимча маълумотлар'>
 							<TextArea rows={5} placeholder=''/>
 						</Form.Item>

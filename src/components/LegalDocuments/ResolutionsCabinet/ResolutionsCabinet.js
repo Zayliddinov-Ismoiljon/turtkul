@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
+import { ResolutionsCabinetStyled } from './ResolutionsCabinet.styles';
 
 export default function ResolutionsCabinet() {
   const [resolutionsCabinet, setResolutionsCabinet] = useState([]);
@@ -17,10 +18,10 @@ export default function ResolutionsCabinet() {
 			.then((data) => setResolutionsCabinet(data));
 	}, []);
   return (
-    <>
-			<h3>{resolutionsCabinet.title}</h3>
+    <ResolutionsCabinetStyled>
+			<h3 className='cabinet-title'>{resolutionsCabinet.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${resolutionsCabinet.body}` }} />
 			<time>{resolutionsCabinet.date}</time>
-		</>
+		</ResolutionsCabinetStyled>
   )
 }

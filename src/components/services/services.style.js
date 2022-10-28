@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
+  margin-bottom: 20px;
 
   @media (max-width: ${({ theme }) => theme.media.tablet}) {
     flex-wrap: wrap;

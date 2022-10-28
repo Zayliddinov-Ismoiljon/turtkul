@@ -1,6 +1,7 @@
 import { Button, Card, Col, Modal, Row } from 'antd';
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { ManageOrganizationStyled } from './ManageOrganization.styles';
 
 export default function ManageOrganization() {
 	const [manageOrganization, setManageOrganization] = useState([]);
@@ -33,19 +34,19 @@ export default function ManageOrganization() {
 	};
 
 	return (
-		<>
+		<ManageOrganizationStyled>
 			{manageOrganization.map((item, i) => (
 				<Row gutter={[12, 12]} key={i}>
-					<Col span={6}>
+					<Col xs={24} sm={6} md={6} lg={6}>
 						<img width={'100%'} src={item.img} alt='image' />
 					</Col>
-					<Col span={18}>
+					<Col xs={24} sm={18} md={18} lg={18}>
 						<h3>{item.position}</h3>
 						<span>{item.name}</span>
 						<p>Telefon: {item.Tel}</p>
 						<p>E-pochta manzili: {item.E_mail}</p>
 						<p>Qabul kunlari : {item.acceptance}</p>
-						<Button type='primary' onClick={showModal}>
+						<Button className='modalBtn' type='primary' onClick={showModal}>
 							Majburiyatlari
 						</Button>
 						<Modal
@@ -59,6 +60,6 @@ export default function ManageOrganization() {
 					</Col>
 				</Row>
 			))}
-		</>
+		</ManageOrganizationStyled>
 	);
 }

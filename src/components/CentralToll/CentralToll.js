@@ -3,6 +3,8 @@ import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { CentralTollStyled } from './CentralToll.styles';
+
 export default function CentralToll() {
 	const [centralToll, setCentralToll] = useState([]);
 	useEffect(() => {
@@ -34,20 +36,20 @@ export default function CentralToll() {
 	};
 
 	return (
-		<>
-			{centralToll.map((item, i) => (
+		<CentralTollStyled>
+			{centralToll?.map((item, i) => (
 				<Row gutter={[12, 12]} key={i}>
-					<Col span={6}>
+					<Col xs={24} sm={6} md={6} lg={6}>
 						<img width={'100%'} src={item.img} alt='image' />
 					</Col>
-					<Col span={18}>
+					<Col style={{marginBottom:'50px'}} xs={24} sm={18} md={18} lg={18}>
 						<h4>{item.position}</h4>
 						<p>{item.name}</p>
 						<a href='tell'>{item.Tel}</a>
 						<br />
 						<a href={'mailto :' + item.E_mail}>{item.E_mail}</a>
 						<br />
-						<Button type='primary' onClick={showModal}>
+						<Button className='centralTollModalBtn' style={{marginTop:'10px'}} type='primary' onClick={showModal}>
 							Majburiyatlari
 						</Button>
 						<Modal
@@ -61,6 +63,6 @@ export default function CentralToll() {
 					</Col>
 				</Row>
 			))}
-		</>
+		</CentralTollStyled>
 	);
 }

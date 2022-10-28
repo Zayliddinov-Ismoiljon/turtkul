@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { LegalLiteracyStyled } from './LegalLiteracy.styles';
 
 export default function LegalLiteracy() {
 	const [legalLiteracy, setLegalLiteracy] = useState([]);
@@ -17,10 +18,9 @@ export default function LegalLiteracy() {
 			.then((data) => setLegalLiteracy(data));
 	}, []);
 	return (
-		<>
-			<h3>{legalLiteracy.title}</h3>
+		<LegalLiteracyStyled>
+			<h3 className='literacy-title'>{legalLiteracy.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${legalLiteracy.body}` }} />
-			<time>{legalLiteracy.date}</time>
-		</>
+		</LegalLiteracyStyled>
 	);
 }

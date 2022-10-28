@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
+import { PeoplesDeputiesStyled } from './PeoplesDeputies.styles';
 
 export default function PeoplesDeputies() {
   const [peoplesDeputies, setPeoplesDeputies] = useState([]);
@@ -14,13 +15,13 @@ export default function PeoplesDeputies() {
 			options,
 		)
 			.then((response) => response.json())
-			.then((data) => setPeoplesDeputies(data));
+			.then((data) => {setPeoplesDeputies(data)});
 	}, []);
   return (
-    <>
-			<h3>{peoplesDeputies.title}</h3>
+    <PeoplesDeputiesStyled>
+			<h3 className='peoples-title'>{peoplesDeputies.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${peoplesDeputies.body}` }} />
 			<time>{peoplesDeputies.date}</time>
-		</>
+		</PeoplesDeputiesStyled>
   )
 }

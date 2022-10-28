@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { MeetingDeputyStyled } from './MeetingDeputy.styles';
 
 export default function MeetingDeputy() {
 	const [meetingDeputy, setMeetingDeputy] = useState([]);
@@ -15,10 +16,9 @@ export default function MeetingDeputy() {
 	}, []);
 	console.log(meetingDeputy);
 	return (
-		<>
-			<h3>{meetingDeputy.title}</h3>
+		<MeetingDeputyStyled>
+			<h3 className='meeting-title'>{meetingDeputy.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${meetingDeputy.body}` }} />
-			<time>{meetingDeputy.date}</time>
-		</>
+		</MeetingDeputyStyled>
 	);
 }

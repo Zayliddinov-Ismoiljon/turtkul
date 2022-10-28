@@ -41,7 +41,7 @@ const Votes = ({ votes }) => {
   };
   return (
     <>
-      <Title text={votes.title} />
+      <Title text={votes.title}/>
       <Wrapper>
         <VotesItems
           votes={data}

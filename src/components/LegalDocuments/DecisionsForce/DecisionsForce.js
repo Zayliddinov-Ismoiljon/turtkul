@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { DecisionsForceStyled } from './DecisionsForce.styles';
 
 export default function DecisionsForce() {
 	const [decisionsForce, setDecisionsForce] = useState([]);
@@ -17,10 +18,9 @@ export default function DecisionsForce() {
 			.then((data) => setDecisionsForce(data));
 	}, []);
 	return (
-		<>
-			<h3>{decisionsForce.title}</h3>
+		<DecisionsForceStyled>
+			<h3 className='force-title'>{decisionsForce.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${decisionsForce.body}` }} />
-			<time>{decisionsForce.date}</time>
-		</>
+		</DecisionsForceStyled>
 	);
 }

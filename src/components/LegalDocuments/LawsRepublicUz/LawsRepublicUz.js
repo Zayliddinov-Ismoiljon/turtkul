@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { LawsRepublicUzStyled } from './LawsRepublicUz.styles';
 
 export default function LawsRepublicUz() {
 	const [lawsRepublicUz, setLawsRepublicUz] = useState([]);
@@ -17,10 +18,9 @@ export default function LawsRepublicUz() {
 			.then((data) => setLawsRepublicUz(data));
 	}, []);
 	return (
-		<>
-			<h3>{lawsRepublicUz.title}</h3>
+		<LawsRepublicUzStyled>
+			<h3 className='laws-title'>{lawsRepublicUz.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${lawsRepublicUz.body}` }} />
-			<time>{lawsRepublicUz.date}</time>
-		</>
+		</LawsRepublicUzStyled>
 	);
 }

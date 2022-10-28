@@ -1,6 +1,7 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { RelationDetailStyled } from './RelationDetail.styles';
 
 export default function RelationDetail() {
 	const [relationDetail, setRealtionDetail] = useState([]);
@@ -24,7 +25,7 @@ export default function RelationDetail() {
 	}, []);
 
 	return (
-		<>
+		<RelationDetailStyled>
 			<div
 				id='carouselExampleControls'
 				class='carousel slide'
@@ -32,7 +33,7 @@ export default function RelationDetail() {
 				<div class='carousel-inner'>
 					<div class='carousel-item active'>
 						<img
-							style={{ width: '100%', height: '700px' }}
+							style={{ width: '100%', borderRadius:'10px' }}
 							src={relationDetail[0]?.image}
 							class='d-block w-100'
 							alt='...'
@@ -41,7 +42,7 @@ export default function RelationDetail() {
 					{relationDetail[1]?.map((item, i) => (
 						<div key={i} class='carousel-item'>
 							<img
-								style={{ width: '100%', height: '700px' }}
+								style={{ width: '100%', borderRadius:'10px' }}
 								src={item}
 								alt=''
 							/>
@@ -65,8 +66,8 @@ export default function RelationDetail() {
 					<span class='visually-hidden'>Next</span>
 				</button>
 			</div>
-      <h3>{relationDetail[0]?.title}</h3>
+      <h3 className='relation-title'>{relationDetail[0]?.title}</h3>
 			<div dangerouslySetInnerHTML={{ __html: `${relationDetail[0]?.body}` }} />
-		</>
+		</RelationDetailStyled>
 	);
 }

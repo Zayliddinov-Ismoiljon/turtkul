@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
+import { OpenMeetingStyled } from './OpenMeeting.styles';
 
 export default function OpenMeeting() {
   const [openSelections, setOpenSelections] = useState([]);
@@ -17,11 +18,10 @@ export default function OpenMeeting() {
 			.then((data) => setOpenSelections(data));
 	}, []);
   return (
-    <>
-			<img src={openSelections.image} alt='image' />
-			<h3>{openSelections.title}</h3>
+    <OpenMeetingStyled>
+			<img className='meeting-img' src={openSelections.image} alt='image' />
+			<h3  className='meeting-title'>{openSelections.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${openSelections.body}` }} />
-			<time>{openSelections.date}</time>
-		</>
+		</OpenMeetingStyled>
   )
 }

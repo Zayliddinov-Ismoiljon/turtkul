@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { PublicCouncilStyled } from './PublicConcil.styles';
 
 export default function PublicCouncil() {
 	const [publicCouncil, setPublicCouncil] = useState([]);
@@ -17,11 +18,10 @@ export default function PublicCouncil() {
 			.then((data) => setPublicCouncil(data));
 	}, []);
 	return (
-		<>
-			<img src={publicCouncil.image} alt='image' />
-			<h3>{publicCouncil.title}</h3>
+		<PublicCouncilStyled>
+			<img width={'100%'} style={{borderRadius:'10px'}} src={publicCouncil.image} alt='image' />
+			<h3 className='public-title'>{publicCouncil.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${publicCouncil.body}` }} />
-			<time>{publicCouncil.date}</time>
-		</>
+		</PublicCouncilStyled>
 	);
 }

@@ -12,7 +12,7 @@ export default function CityTransport() {
 
     fetch(`${BASE_URL}services/Services_Transport`, options)
     .then(response=>response.json())
-    .then(data=>{console.log('cityTransportData=>', data); setCityTransport(data)})
+    .then(data=>{ setCityTransport(data)})
   },[])
   return (
     <>

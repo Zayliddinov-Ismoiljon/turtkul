@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { InstitutionsOrganizationsStyled } from './InstitutionsOrganizations.styles';
 
 export default function InstitutionsOrganizations() {
 	const [institutionsOrganizations, setInstitutionsOrganizations] = useState(
@@ -19,14 +20,14 @@ export default function InstitutionsOrganizations() {
 			.then((data) => setInstitutionsOrganizations(data));
 	}, []);
 	return (
-		<>
-			<h3>{institutionsOrganizations.title}</h3>
+		<InstitutionsOrganizationsStyled>
+			<h3 className='organization-title'>{institutionsOrganizations.title}</h3>
 			<p
 				dangerouslySetInnerHTML={{
 					__html: `${institutionsOrganizations.body}`,
 				}}
 			/>
 			<time>{institutionsOrganizations.date}</time>
-		</>
+		</InstitutionsOrganizationsStyled>
 	);
 }

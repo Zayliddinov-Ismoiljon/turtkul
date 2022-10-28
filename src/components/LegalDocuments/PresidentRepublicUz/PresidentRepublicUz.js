@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { PresidentRepublicStyled } from './PresidentRepublic.styles';
 
 export default function PresidentRepublicUz() {
 	const [presidentRepublicUz, setPresidentRepublicUz] = useState([]);
@@ -17,10 +18,9 @@ export default function PresidentRepublicUz() {
 			.then((data) => setPresidentRepublicUz(data));
 	}, []);
 	return (
-		<>
-			<h3>{presidentRepublicUz.title}</h3>
+		<PresidentRepublicStyled>
+			<h3 className='president-title'>{presidentRepublicUz.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${presidentRepublicUz.body}` }} />
-			<time>{presidentRepublicUz.date}</time>
-		</>
+		</PresidentRepublicStyled>
 	);
 }

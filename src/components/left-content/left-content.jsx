@@ -2,8 +2,9 @@ import { List, ListItemButton } from "@mui/material";
 import { Title } from "components/swiper-imgs/swiper.style";
 import { ItemWrapper } from "components/swiper-imgs/swiper.style";
 import React from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getNavbarData } from "store/reducer-and-action/language/language";
 
 const LeftContent = () => {
@@ -15,12 +16,13 @@ const LeftContent = () => {
   //       </ListItemButton>
   //     ))}
   //   </List>
+  const navigate = useNavigate();
   const location = useLocation().pathname;
   const currentList = useSelector(getNavbarData).find((part) =>
     location.includes(part.link)
   );
 
-  if (currentList)
+  if (currentList){
     return (
       <div>
         <Title>{currentList.head}</Title>
@@ -39,7 +41,8 @@ const LeftContent = () => {
           ))}
         </List>
       </div>
-    );
+    ); 
+  }
 };
 
 export default LeftContent;

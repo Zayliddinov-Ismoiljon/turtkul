@@ -36,7 +36,7 @@ const Events = () => {
 
 	return (
 		<>
-				<Title text={'Voqealar'} />
+				<Title text={'Voqealar'} style={{marginTop:'100px'}} />
 			<Wrapper>
 				{homeEvents.map((item, i) => {
 					return (

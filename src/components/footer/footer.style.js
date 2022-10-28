@@ -25,6 +25,10 @@ export const FooterTop = styled.div`
   }
 `;
 
+// export const FooterCurrent= styled.div`
+// display: flex;
+// `;
+
 export const Left = styled.div`
   width: 70%;
   display: flex;

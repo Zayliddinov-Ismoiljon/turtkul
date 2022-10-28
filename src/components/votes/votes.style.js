@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Title= styled.div`
+margin: 40px 0px;
+`;
+
 export const Wrapper = styled.div`
   margin: 30px 0 70px;
   text-align: center;

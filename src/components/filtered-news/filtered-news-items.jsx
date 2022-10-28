@@ -9,14 +9,14 @@ import 'aos/dist/aos.css';
 
 const FilteredNewsItems = ({ news = [], newsFilter }) => {
 
-	console.log("asda",news)
+	// console.log("asda",news)
 
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
 
-	console.log('newsFilter', newsFilter);
+	// console.log('newsFilter', newsFilter);
 
 	
 

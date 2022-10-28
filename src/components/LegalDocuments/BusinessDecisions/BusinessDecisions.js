@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
+import { BusinessStyled } from './BusinessDecsions.styles';
 
 export default function BusinessDecisions() {
   const [businessDecisions, setBusinessDecisions] = useState([]);
@@ -14,13 +15,12 @@ export default function BusinessDecisions() {
 			options,
 		)
 			.then((response) => response.json())
-			.then((data) => setBusinessDecisions(data));
+			.then((data) => {setBusinessDecisions(data)});
 	}, []);
   return (
-    <>
-			<h3>{businessDecisions.title}</h3>
+    <BusinessStyled>
+			<h3 className='business-title'>{businessDecisions.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${businessDecisions.body}` }} />
-			<time>{businessDecisions.date}</time>
-		</>
+		</BusinessStyled>
   )
 }

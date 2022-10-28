@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { BASE_URL } from 'api/config';
 
+import { VacancyStyled } from './Vacancy.styles';
+
 const useStyles = makeStyles({
 	root: {
 		width: '100%',
@@ -39,7 +41,7 @@ export default function ActionsInAccordionSummary({ setActiveKey }) {
 	return (
 		<div className={classes.root}>
 			{vacancy.map((e, i) => (
-				<Accordion key={i}>
+				<Accordion className='vacancy-item-accordion' key={i}>
 					<AccordionSummary
 						expandIcon={<ExpandMoreIcon />}
 						aria-label='Expand'
@@ -49,7 +51,7 @@ export default function ActionsInAccordionSummary({ setActiveKey }) {
 					</AccordionSummary>
 					<AccordionDetails>
 						<Typography color='textSecondary'>
-							{<p>{e.information}</p>}
+							<p className='information'>{e.information}</p>
 						</Typography>
 					</AccordionDetails>
 					<AccordionDetails>

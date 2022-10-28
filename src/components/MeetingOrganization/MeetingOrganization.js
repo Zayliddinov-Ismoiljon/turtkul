@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { MeetingOrganizationStyled } from './MeetingOrganization.styles';
 
 export default function MeetingOrganization() {
 	const [meetingOrganization, setMeetingOrganization] = useState([]);
@@ -16,10 +17,9 @@ export default function MeetingOrganization() {
 			.then((data) => setMeetingOrganization(data));
 	}, []);
 	return (
-		<>
-			<h3>{meetingOrganization.title}</h3>
+		<MeetingOrganizationStyled>
+			<h3 className='organization-title'>{meetingOrganization.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${meetingOrganization.body}` }} />
-			<time>{meetingOrganization.date}</time>
-		</>
+		</MeetingOrganizationStyled>
 	);
 }

@@ -19,7 +19,7 @@ export default function Pagination({onPaginate}) {
 
       fetch(`${BASE_URL}authority_news/count`, options)
       .then(response=>response.json())
-      .then(data=>{setCount(data); console.log('countData', data);})
+      .then(data=>{setCount(data);})
    },[])
 
    console.log(count)

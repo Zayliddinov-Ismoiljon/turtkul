@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
+import { MayorTurtkulStyled } from './MayorTurtkul.styles';
 
 export default function MayorTurtkul() {
   const [mayotTurtkul, setMayotTurtkul] = useState([]);
@@ -17,10 +18,10 @@ export default function MayorTurtkul() {
 			.then((data) => setMayotTurtkul(data));
 	}, []);
   return (
-    <>
-			<h3>{mayotTurtkul.title}</h3>
+    <MayorTurtkulStyled>
+			<h3 className='mayor-title'>{mayotTurtkul.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${mayotTurtkul.body}` }} />
 			<time>{mayotTurtkul.date}</time>
-		</>
+		</MayorTurtkulStyled>
   )
 }

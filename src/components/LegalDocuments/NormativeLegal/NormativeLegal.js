@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
+import { NormativeLegalStyled } from './NormativeLegal.styles';
 
 export default function NormativeLegal() {
   const [normativeLegal, setNormativeLegal] = useState([]);
@@ -17,10 +18,10 @@ export default function NormativeLegal() {
 			.then((data) => setNormativeLegal(data));
 	}, []);
   return (
-    <>
-			<h3>{normativeLegal.title}</h3>
+    <NormativeLegalStyled>
+			<h3 className='legal-title'>{normativeLegal.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${normativeLegal.body}` }} />
 			<time>{normativeLegal.date}</time>
-		</>
+		</NormativeLegalStyled>
   )
 }

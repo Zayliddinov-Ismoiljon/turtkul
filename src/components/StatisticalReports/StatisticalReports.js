@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
+import { StatisticalReportsStyled } from './StatisticalReports.styles';
 
 export default function StatisticalReports() {
   const [statisticalReports, setStatisticalReports] = useState([]);
@@ -17,11 +18,10 @@ export default function StatisticalReports() {
 			.then((data) => setStatisticalReports(data));
 	}, []);
   return (
-    <>
-			<img src={statisticalReports.image} alt='image' />
-			<h3>{statisticalReports.title}</h3>
+    <StatisticalReportsStyled>
+			<img className='statistical-img' src={statisticalReports.image} alt='image' />
+			<h3 className='statistical-title'>{statisticalReports.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${statisticalReports.body}` }} />
-			<time>{statisticalReports.date}</time>
-		</>
+		</StatisticalReportsStyled>
   )
 }

@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { InvestPotentialStyled } from './InvestmenPotential.styles';
 
 export default function InvestmentPotential() {
 	const [potential, setPotential] = useState([]);
@@ -21,10 +22,10 @@ export default function InvestmentPotential() {
 	}, []);
 
 	return (
-		<>
-			<img src={potential.image} alt='image' />
-			<h3>{potential.title}</h3>
+		<InvestPotentialStyled>
+			<img className='invest-img' src={potential.image} alt='image' />
+			<h3 className='invest-title'>{potential.title}</h3>
 			<div dangerouslySetInnerHTML={{ __html: `${potential.body}` }} />
-		</>
+		</InvestPotentialStyled>
 	);
 }

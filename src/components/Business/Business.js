@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { BusinessStyled } from './Business.styles';
 
 export default function Business() {
 	const [business, setBusiness] = useState([]);
@@ -17,11 +18,10 @@ export default function Business() {
 			.then((data) => setBusiness(data));
 	}, []);
 	return (
-		<>
-			<img src={business.image} alt='image' />
-			<h3>{business.title}</h3>
+		<BusinessStyled>
+			<img className='business-img' src={business.image} alt='image' />
+			<h3 className='business-title'>{business.title}</h3>
 			<p dangerouslySetInnerHTML={{ __html: `${business.body}` }} />
-			<time>{business.date}</time>
-		</>
+		</BusinessStyled>
 	);
 }

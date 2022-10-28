@@ -14,6 +14,8 @@ import { getFooterData } from "store/reducer-and-action/language/language";
 import stiker from "assets/footerImg/stiker.PNG";
 import { BASE_URL } from "api/config";
 
+import './footer.css'
+
 const Footer = () => {
   const footerData = useSelector(getFooterData);
 
@@ -54,7 +56,7 @@ const Footer = () => {
         <p>{footerData.copyright}</p>
         <img src={stiker} alt="no img" />
       </FooterBottom> */}
-							<p dangerouslySetInnerHTML={{ __html: `${footer.footer}` }} />
+							<p style={{display:'flex'}} dangerouslySetInnerHTML={{ __html: `${footer.footer}` }} />
     </Wrapper>
   );
 };

@@ -3,6 +3,7 @@ import ActionStrategy from 'components/ActionStrategy/ActionStrategy';
 import AntiCorruption from 'components/anti-corruption/AntiCorruption';
 import AntiCorruptionDocuments from 'components/anti-corruption/AntiCorruptionDocuments';
 import BoardActivities from 'components/BoardActivities/BoardActivities';
+import BoardActivitiesId from 'components/BoardActivities/BoardActivitiesId/BoardActivitiesId';
 import Business from 'components/Business/Business';
 import CentralToll from 'components/CentralToll/CentralToll';
 import Connection from 'components/connection/Connection';
@@ -86,197 +87,12 @@ const routes = [
 				element: <FilteredNews />,
 			},
 			{
-				path: 'news_wiew/:id',
-				element: <HeaderNews />,
-			},
-			{
 				path: 'news/:newsFilter',
 				element: <FilteredNews />,
 			},
-			
 			{
-				path: 'contacts',
-				element: <Contacts />,
-			},
-			{
-				path: 'anticorruption/anti-corruption-news',
-				element: <AntiCorruption />,
-			},
-			{
-				path: 'anticorruption/regulatory-docs',
-				element: <AntiCorruptionDocuments />,
-			},
-			{
-				path: 'about/connection',
-				element: <Connection />,
-			},
-			{
-				path: 'about/e-government',
-				element: <Government />,
-			},
-			{
-				path: 'about/vacancies',
-				element: <Vacancy />,
-			},
-			{
-				path: 'about/about-gov',
-				element: <AboutGov />,
-			},
-			{
-				path: 'about/central-tool',
-				element: <CentralToll />,
-			},
-			{
-				path: 'about/manage-organization',
-				element: <ManageOrganization />,
-			},
-			{
-				path: 'about/management-statement',
-				element: <ManagementStatement />,
-			},
-			{
-				path: 'about/press-serves',
-				element: <PressServices />,
-			},
-			{
-				path: 'about/statistics',
-				element: <Statistics />,
-			},
-			{
-				path: 'activity/actions-strategy',
-				element: <ActionStrategy />,
-			},
-			{
-				path: 'activity/gov-programs',
-				element: <GovernmentPrograms />,
-			},
-			{
-				path: 'activity/investments-potential',
-				element: <InvestmentPotential />,
-			},
-			{
-				path: 'activity/tourism-activities',
-				element: <TourismActivities />,
-			},
-			{
-				path: 'activity/public-council',
-				element: <PublicCouncil />,
-			},
-			{
-				path: 'activity/open-data',
-				element: <OpenData />,
-			},
-			{
-				path: 'activity/business',
-				element: <Business />,
-			},
-			{
-				path: 'activity/economic-indicators',
-				element: <EconomicIndicators />,
-			},
-			{
-				path: 'activity/meetings',
-				element: <OpenMeeting />,
-			},
-			{
-				path: 'activity/statistical-reports',
-				element: <StatisticalReports />,
-			},
-			{
-				path: 'activity/international-relations',
-				element: <InternationalRelations />,
-			},
-			{
-				path: 'activity/relation/:id',
-				element: <RelationDetail />,
-			},
-			{
-				path: 'activity/projects',
-				element: <Projects />,
-			},
-			{
-				path: 'activity/projects/:id',
-				element: <ProjectsId />,
-			},
-			{
-				path: 'meeting/board-activities',
-				element: <BoardActivities />,
-			},
-			{
-				path: 'meeting/district-council-deputies',
-				element: <MeetingDeputy />,
-			},
-			{
-				path: 'meeting/coordinating-advisory-bodies',
-				element: <MeetingOrganization />,
-			},
-			{
-				path: 'activity/legal-docs',
-				element: <LegalDocuments />,
-			},
-			{
-				path: 'activity/Laws_of_the_Republic_of_Uzbekistan',
-				element: <LawsRepublicUz />,
-			},
-			{
-				path: 'activity/Decisions_that_have_lost_their_force',
-				element: <DecisionsForce />,
-			},
-			{
-				path: 'activity/Legal_literacy',
-				element: <LegalLiteracy />,
-			},
-			{
-				path: 'activity/Resolutions_and_decrees_of_the_President_of_the_Republic_of_Uzbekistan',
-				element: <PresidentRepublicUz />,
-			},
-      {
-				path: 'activity/Business_decisions',
-				element: <BusinessDecisions />,
-			},
-      {
-				path: 'activity/Resolution_of_the_Turtkul_City_Council_of_Peoples_Deputies',
-				element: <PeoplesDeputies />,
-			},
-      {
-				path: 'activity/Resolutions_of_the_Cabinet_of_Ministers_of_the_Republic_of_Uzbekistan',
-				element: <ResolutionsCabinet/>,
-			},
-      {
-				path: 'activity/Discussion_of_NHHs_under_development',
-				element: <UnderDevelopment/>,
-			},
-      {
-				path: 'activity/Normative_legal_acts_of_district_hokimiyats',
-				element: <NormativeLegal/>,
-			},
-      {
-				path: 'activity/Decisions_and_Orders_of_the_Mayor_of_Turtkul',
-				element: <MayorTurtkul/>,
-			},
-      {
-				path: 'activity/Procedure_for_allocating_land_plots_for_use_or_lease_to_enterprises_institutions_organizations',
-				element: <InstitutionsOrganizations/>,
-			},
-      {
-				path: 'activity/Fighting_corruption',
-				element: <FightingCorruption/>,
-			},
-			{
-				path: 'services/local-budget',
-				element: <LocalBudjet/>,
-			},
-			{
-				path: 'services/urban-transport',
-				element: <CityTransport/>,
-			},
-			{
-				path: 'services/licensing-services',
-				element: <LicensingServices/>,
-			},
-			{
-				path: 'events/:id',
-				element: <EventsId/>,
+				path: 'meeting/board-activities/:id',
+				element: <BoardActivitiesId />,
 			},
 			{
 				path: 'search-result',
@@ -290,9 +106,201 @@ const routes = [
 				path: '/',
 				element: <TemplateLayout />,
 				children: [
+					// {
+					// 	path: 'about/about-gov',
+					// 	element: <Management />,
+					// },
+					
+					{
+						path: 'news_wiew/:id',
+						element: <HeaderNews />,
+					},
+					
+					
+					{
+						path: 'contacts',
+						element: <Contacts />,
+					},
+					{
+						path: 'anticorruption/anti-corruption-news',
+						element: <AntiCorruption />,
+					},
+					{
+						path: 'anticorruption/regulatory-docs',
+						element: <AntiCorruptionDocuments />,
+					},
+					{
+						path: 'about/connection',
+						element: <Connection />,
+					},
+					{
+						path: 'about/e-government',
+						element: <Government />,
+					},
+					{
+						path: 'about/vacancies',
+						element: <Vacancy />,
+					},
 					{
 						path: 'about/about-gov',
-						element: <Management />,
+						element: <AboutGov />,
+					},
+					{
+						path: 'about/central-tool',
+						element: <CentralToll />,
+					},
+					{
+						path: 'about/manage-organization',
+						element: <ManageOrganization />,
+					},
+					{
+						path: 'about/management-statement',
+						element: <ManagementStatement />,
+					},
+					{
+						path: 'about/press-serves',
+						element: <PressServices />,
+					},
+					{
+						path: 'about/statistics',
+						element: <Statistics />,
+					},
+					{
+						path: 'activity/actions-strategy',
+						element: <ActionStrategy />,
+					},
+					{
+						path: 'activity/gov-programs',
+						element: <GovernmentPrograms />,
+					},
+					{
+						path: 'activity/investments-potential',
+						element: <InvestmentPotential />,
+					},
+					{
+						path: 'activity/tourism-activities',
+						element: <TourismActivities />,
+					},
+					{
+						path: 'activity/public-council',
+						element: <PublicCouncil />,
+					},
+				
+					{
+						path: 'activity/business',
+						element: <Business />,
+					},
+					{
+						path: 'activity/economic-indicators',
+						element: <EconomicIndicators />,
+					},
+					{
+						path: 'activity/meetings',
+						element: <OpenMeeting />,
+					},
+					{
+						path: 'activity/statistical-reports',
+						element: <StatisticalReports />,
+					},
+					{
+						path: 'activity/international-relations',
+						element: <InternationalRelations />,
+					},
+					{
+						path: 'activity/relation/:id',
+						element: <RelationDetail />,
+					},
+					{
+						path: 'activity/projects',
+						element: <Projects />,
+					},
+					{
+						path: 'activity/projects/:id',
+						element: <ProjectsId />,
+					},
+					{
+						path: 'meeting/board-activities',
+						element: <BoardActivities />,
+					},
+					{
+						path: 'meeting/district-council-deputies',
+						element: <MeetingDeputy />,
+					},
+					{
+						path: 'meeting/coordinating-advisory-bodies',
+						element: <MeetingOrganization />,
+					},
+					{
+						path: 'activity/legal-docs',
+						element: <LegalDocuments />,
+					},
+					{
+						path: 'activity/Laws_of_the_Republic_of_Uzbekistan',
+						element: <LawsRepublicUz />,
+					},
+					{
+						path: 'activity/Decisions_that_have_lost_their_force',
+						element: <DecisionsForce />,
+					},
+					{
+						path: 'activity/Legal_literacy',
+						element: <LegalLiteracy />,
+					},
+					{
+						path: 'activity/Resolutions_and_decrees_of_the_President_of_the_Republic_of_Uzbekistan',
+						element: <PresidentRepublicUz />,
+					},
+					{
+						path: 'activity/Business_decisions',
+						element: <BusinessDecisions />,
+					},
+					{
+						path: 'activity/Resolution_of_the_Turtkul_City_Council_of_Peoples_Deputies',
+						element: <PeoplesDeputies />,
+					},
+					{
+						path: 'activity/Resolutions_of_the_Cabinet_of_Ministers_of_the_Republic_of_Uzbekistan',
+						element: <ResolutionsCabinet/>,
+					},
+					{
+						path: 'activity/Discussion_of_NHHs_under_development',
+						element: <UnderDevelopment/>,
+					},
+					{
+						path: 'activity/Normative_legal_acts_of_district_hokimiyats',
+						element: <NormativeLegal/>,
+					},
+					{
+						path: 'activity/Decisions_and_Orders_of_the_Mayor_of_Turtkul',
+						element: <MayorTurtkul/>,
+					},
+					{
+						path: 'activity/Procedure_for_allocating_land_plots_for_use_or_lease_to_enterprises_institutions_organizations',
+						element: <InstitutionsOrganizations/>,
+					},
+					{
+						path: 'activity/Fighting_corruption',
+						element: <FightingCorruption/>,
+					},
+					{
+						path: 'services/local-budget',
+						element: <LocalBudjet/>,
+					},
+					{
+						path: 'services/urban-transport',
+						element: <CityTransport/>,
+					},
+					{
+						path: 'services/licensing-services',
+						element: <LicensingServices/>,
+					},
+					{
+						path: 'events/:id',
+						element: <EventsId/>,
+					},
+					{
+						path: 'activity/open-data',
+						element: <OpenData />,
 					},
 					{
 						path: 'news/:newsFilter/:newsId',
