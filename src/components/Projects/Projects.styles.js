@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ProjectsStyled= styled.div`
 margin-top: 30px;
+width: 100%;
 
 .projects-title{
   color: blue;

@@ -87,12 +87,24 @@ const routes = [
 				element: <FilteredNews />,
 			},
 			{
+				path: 'news_wiew/:id',
+				element: <HeaderNews />,
+			},
+			{
 				path: 'news/:newsFilter',
 				element: <FilteredNews />,
 			},
 			{
 				path: 'meeting/board-activities/:id',
 				element: <BoardActivitiesId />,
+			},
+			{
+				path: 'events/:id',
+				element: <EventsId/>,
+			},
+			{
+				path: '/anticorruption/anti-corruption-news',
+				element: <AntiCorruption />,
 			},
 			{
 				path: 'search-result',
@@ -109,21 +121,10 @@ const routes = [
 					// {
 					// 	path: 'about/about-gov',
 					// 	element: <Management />,
-					// },
-					
-					{
-						path: 'news_wiew/:id',
-						element: <HeaderNews />,
-					},
-					
-					
+					// },	
 					{
 						path: 'contacts',
 						element: <Contacts />,
-					},
-					{
-						path: 'anticorruption/anti-corruption-news',
-						element: <AntiCorruption />,
 					},
 					{
 						path: 'anticorruption/regulatory-docs',
@@ -138,7 +139,7 @@ const routes = [
 						element: <Government />,
 					},
 					{
-						path: 'about/vacancies',
+						path: '/about/vacancies',
 						element: <Vacancy />,
 					},
 					{
@@ -293,10 +294,6 @@ const routes = [
 					{
 						path: 'services/licensing-services',
 						element: <LicensingServices/>,
-					},
-					{
-						path: 'events/:id',
-						element: <EventsId/>,
 					},
 					{
 						path: 'activity/open-data',

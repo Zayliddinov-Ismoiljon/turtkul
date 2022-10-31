@@ -139,7 +139,7 @@ const SubmitResume = () => {
 							<Input />
 						</Form.Item>
 					</Col>
-					<Col xs={24} sm={8} md={8} lg={8}>
+					{/* <Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item  label='Манзил' >
 							<Input placeholder='Manzil' />
 						</Form.Item>
@@ -148,7 +148,7 @@ const SubmitResume = () => {
 						<Form.Item  label=' '>
 							<Input placeholder='Manzil' />
 						</Form.Item>
-					</Col>
+					</Col> */}
 				</Row>
 				<Row gutter={24}>
 					<Col xs={24} sm={8} md={8} lg={8}>
@@ -199,11 +199,11 @@ const SubmitResume = () => {
 					</Col>
 				</Row>
 				<Row gutter={24}>
-					<Col xs={24} sm={12} md={12} lg={12}>
+					{/* <Col xs={24} sm={12} md={12} lg={12}>
 						<Form.Item label='Ишга киришишдан мамнунмиз'>
 							<TextArea rows={5} placeholder='Ушбу банд жуда муҳим! Уни қай даражада қисқа ва мазмунли ёритишингизга қараб, давлат солиқ хизмати тизимида ўрин топишингизда хулоса чиқарилади.'/>
 						</Form.Item>
-					</Col>
+					</Col> */}
           <Col xs={24} sm={12} md={12} lg={12}>
 						<Form.Item name='additional_info' label='Қўшимча маълумотлар'>
 							<TextArea rows={5} placeholder=''/>

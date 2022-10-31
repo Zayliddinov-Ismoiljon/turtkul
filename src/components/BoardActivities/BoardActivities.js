@@ -19,19 +19,20 @@ export default function BoardActivities() {
 	// console.log('boardActivitiesDetail==>>', boardActivities);
 	return (
 		<BoardActivitiesStyled>
-			<Row gutter={[24,24]} style={{margin:'0', justifyContent:'space-between', flexWrap:'wrap'}}>
+			<Row gutter={[12,24]} style={{margin:'0'}}>
 				{boardActivities.map((item, i) => (
 					<Col
-					className='board-col'
-						style={{
-							border: '1px solid silver',
-							padding: '5px',
-							borderRadius: '5px',
-						}}
+						
 						xs={24}
 						md={6}
 						sm={6}
 						lg={6}>
+							<div className="board-col" 
+							style={{
+							border: '1px solid silver',
+							padding: '5px',
+							borderRadius: '5px',
+						}}>
 						<Link to={`/meeting/board-activities/${item?.id}`}>
 							<figure>
 								<img
@@ -43,6 +44,7 @@ export default function BoardActivities() {
 							</figure>
 							<h3 className='board-title'>{item.title}</h3>
 						</Link>
+							</div>
 					</Col>
 				))}
 			</Row>

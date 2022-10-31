@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
+import { AntiCorruptionDocumentsStyled } from './AntiCorruptionDocuments.styles';
 
 export default function AntiCorruptionDocuments() {
 	const [corruptionDoc, setCorruptionDoc] = useState([]);
@@ -21,14 +22,13 @@ export default function AntiCorruptionDocuments() {
 	},[]);
 
 	return (
-		<>
-			<h1 style={{ color: 'blue' }}>Sohaga doir normativ-huquqiy hujatlar</h1>
+		<AntiCorruptionDocumentsStyled>
 			{
 				<>
-					<h2>{corruptionDoc.title}</h2>
+					<h2 className='document-title'>{corruptionDoc.title}</h2>
 					<div dangerouslySetInnerHTML={{ __html: `${corruptionDoc.body}` }} />
 				</>
 			}
-		</>
+		</AntiCorruptionDocumentsStyled>
 	);
 }

@@ -1,6 +1,7 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { EventsIdStyled } from './EventsId.styles';
 
 export default function EventsId() {
 	const [eventsId, setEventsId] = useState([]);
@@ -16,11 +17,12 @@ export default function EventsId() {
 		fetch(`${BASE_URL}/home/uz/events/${id}`, options)
 			.then((response) => response.json())
 			.then((data) => {
-        setEventsId(data)
+        setEventsId(data);
+				console.log("eventsId data", data);
 			});
 	}, []);
 	return (
-		<>
+		<EventsIdStyled>
 			<div
 				id='carouselExampleControls'
 				class='carousel slide'
@@ -61,8 +63,8 @@ export default function EventsId() {
 					<span class='visually-hidden'>Next</span>
 				</button>
 			</div>
-			<h3>{eventsId[0]?.title}</h3>
+			<h3 className='eventsid-title'>{eventsId[0]?.title}</h3>
 			<div dangerouslySetInnerHTML={{ __html: `${eventsId[0]?.body}` }} />
-		</>
+		</EventsIdStyled>
 	);
 }

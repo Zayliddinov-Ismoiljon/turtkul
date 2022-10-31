@@ -94,10 +94,10 @@ module.exports = {
           route: "economic-indicators",
           title: "Iqtisodiy ko`rsatkichlar",
         },
-        {
-          route: "open-selections",
-          title: "Ochiq tanlovlar",
-        },
+        // {
+        //   route: "open-selections",
+        //   title: "Ochiq tanlovlar",
+        // },
         {
           route: "statistical-reports",
           title: "Statistik hisobotlar",
@@ -182,10 +182,10 @@ module.exports = {
       head: "Xizmatlar",
       link: "services",
       list: [
-        {
-          route: "interactive-services",
-          title: "Interaktiv xizmatlar",
-        },
+        // {
+        //   route: "interactive-services",
+        //   title: "Interaktiv xizmatlar",
+        // },
         {
           route: "citizens-appeal",
           title: "Fuqarolar murojaati",
@@ -210,10 +210,10 @@ module.exports = {
           title: "Ko`p so`raladigan savollar",
         },
 
-        {
-          route: "suggestions-feedbacks",
-          title: "Fuqarolardan taklif va mulohazalarini olish",
-        },
+        // {
+        //   route: "suggestions-feedbacks",
+        //   title: "Fuqarolardan taklif va mulohazalarini olish",
+        // },
       ],
     },
     {

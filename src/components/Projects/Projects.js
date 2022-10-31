@@ -20,9 +20,9 @@ export default function Projects() {
 	}, []);
 	return (
 		<ProjectsStyled>
+			<Row gutter={[12, 12]}>
 			{projects.map((item, i) => (
-				<Row gutter={[12, 12]}>
-					<Col key={i} xs={24} sm={6} md={6} lg={6}>
+					<Col key={i} xs={24} sm={12} md={8} lg={6} xl={6}>
 						<Card className='projects-card'>
 							<Link to={`/activity/projects/${item?.id}`}>
                 <figure>
@@ -32,8 +32,8 @@ export default function Projects() {
 							<h4 className='projects-title'>{item.title}</h4>
 						</Card>
 					</Col>
-				</Row>
 			))}
+			</Row>
 		</ProjectsStyled>
 	);
 }

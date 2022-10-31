@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config'
 import React, { useEffect, useState } from 'react'
+import { LicensingServicesStyled } from './LicensingServicies.styles'
 
 export default function LicensingServices() {
   const [licensingServices, setLicensingServices]= useState([])
@@ -14,11 +15,11 @@ export default function LicensingServices() {
     .then(data=> {setLicensingServices(data); console.log(licensingServices);})
   },[])
   return (
-    <>
-    <h3>{licensingServices.title}</h3>
+    <LicensingServicesStyled>
+    <h3 className='licensing-title'>{licensingServices.title}</h3>
     <a href={licensingServices.file} target='_blank'>
       <img width={'50px'} height={'50px'} src="https://www.tashkent.uz/assets/public/images/pdf.svg" alt="file image" />
     </a>
-    </>
+    </LicensingServicesStyled>
   )
 }

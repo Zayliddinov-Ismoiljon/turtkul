@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 export default function Pagination({onPaginate}) {
 	const activefilter = useSelector(getActiveFilter);
-   console.log('active filter==',activefilter);
 
 
    const [count, setCount]= React.useState([]);
@@ -22,7 +21,7 @@ export default function Pagination({onPaginate}) {
       .then(data=>{setCount(data);})
    },[])
 
-   console.log(count)
+   
 
    return (
       <Stack spacing={2}>

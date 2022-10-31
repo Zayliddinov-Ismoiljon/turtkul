@@ -16,8 +16,6 @@ const FilteredNewsItems = ({ news = [], newsFilter }) => {
 		AOS.refresh();
 	}, []);
 
-	// console.log('newsFilter', newsFilter);
-
 	
 
 	return (
@@ -27,9 +25,7 @@ const FilteredNewsItems = ({ news = [], newsFilter }) => {
 					<div data-aos='fade-right' key={i}>
 						<Link
 							to={
-								newsFilter
-									? `/${newsFilter}/${news_item.id}`
-									: `/news/${news_item.filter}/${news_item.id}`
+								`/news_wiew/${news_item.id}`
 							}
 							key={news_item.id}>
 							<NewsItemWrapper role='tabpanel'>

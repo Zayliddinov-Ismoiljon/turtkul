@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config';
 import React, { useEffect, useState } from 'react'
+import { AntiCorruptionStyled } from './AntiCorruption.styles';
 
 export default function AntiCorruption() {
   const [corrupsiya, setCorrupsiya]= useState({})
@@ -19,15 +20,13 @@ export default function AntiCorruption() {
   }, []);
 
   return (
-    <>
-    <h1>Aksil corrupsiya page</h1>
+    <AntiCorruptionStyled>
       {
         <>
-          <h3>{corrupsiya.title}</h3>
+          <h3 className='corruption-title'>{corrupsiya.title}</h3>
           <p dangerouslySetInnerHTML={{ __html: `${corrupsiya.body}` }} />
-          <time>{corrupsiya.date}</time>
         </>
       }
-    </>
+    </AntiCorruptionStyled>
   )
 }

@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config'
 import React, { useEffect, useState } from 'react'
+import { LocalBudjetStyled } from './LocalBudjet.styles'
 
 export default function LocalBudjet() {
 
@@ -15,9 +16,9 @@ export default function LocalBudjet() {
     .then(data=> {console.log('data===>>', data); setLocalBudjet(data)})
   },[])
   return (
-    <>
-    <h3>{localBudjet.title}</h3>
+    <LocalBudjetStyled>
+    <h3 className='budjet-title'>{localBudjet.title}</h3>
     <p dangerouslySetInnerHTML={{ __html: `${localBudjet.body}` }} />
-    </>
+    </LocalBudjetStyled>
   )
 }

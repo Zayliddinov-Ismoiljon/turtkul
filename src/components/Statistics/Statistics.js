@@ -1,30 +1,58 @@
-import React from 'react';
-import * as BizCharts from 'bizcharts';
-import { Chart, Interval, Tooltip } from 'bizcharts';
+// While using the dependency of the Biz chart i have got this error message. "Error: Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons"
 
-const data = [
-	{ year: '1951 年', sales: 38 },
-	{ year: '1952 年', sales: 52 },
-	{ year: '1956 年', sales: 61 },
-	{ year: '1957 年', sales: 45 },
-	{ year: '1958 年', sales: 48 },
-	{ year: '1959 年', sales: 38 },
-	{ year: '1960 年', sales: 38 },
-	{ year: '1962 年', sales: 38 },
-];
+import React, { useEffect, useState } from 'react';
+import { Line, Column } from '@ant-design/charts';
+import { BASE_URL } from 'api/config';
+import { StatisticsStyled } from './Statistics.styles';
 
-export default function Statistics() {
+const Statistics = () => {
+
+	const [statistic, setStatistic]= useState([]);
+
+	useEffect(()=>{
+		const options= {
+			method:'GET',
+			headers:{}
+		}
+
+		fetch(`${BASE_URL}about_authority/Statistics_Model`, options)
+		.then(response=> response.json())
+	.then(data=> {setStatistic(data); console.log('statisticData', data);})
+	},[])
+	
+	const data = [
+		{
+			"title": "xxxxxxxxxxxxx",
+			"amount": 6.75
+	},
+	{
+			"title": "jhjgkjg,g",
+			"amount": 8.97
+	},
+	{
+			"title": ",nkhvmghvmh",
+			"amount": 7.0
+	}
+  ];
+  const config = {
+    data: statistic,
+    xField: 'title',
+    yField: 'amount',
+    label: {
+      position: 'middle',
+      // 'top', 'bottom', 'middle',
+      style: {
+        fill: '#FFFFFF',
+        opacity: 0.6,
+      },
+    },
+  };
+
 	return (
-		<div>
-			<Chart
-				height={400}
-				autoFit
-				data={data}
-				interactions={['active-region']}
-				padding={[30, 30, 30, 50]}>
-				<Interval position='year*sales' />
-				<Tooltip shared />
-			</Chart>
-		</div>
+		<StatisticsStyled>
+			<Column {...config} />
+		</StatisticsStyled>
 	);
-}
+};
+
+export default Statistics;

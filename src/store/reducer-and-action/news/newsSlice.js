@@ -50,7 +50,6 @@ const newsSlice = createSlice({
     builder.addCase(searchNews.fulfilled, (state, action) => {
       state.searchNews = action.payload.map((item) => ({
         ...item,
-        imagesown: DEFAULT_IMAGE,
       }));
       state.searchNewsPending = false;
     });
@@ -83,7 +82,7 @@ searchNews = createAsyncThunk(
   "news/searchNews",
   async ({ search, activeLanguageName }) => {
     if (search) {
-      const { data } = await postData(`authority_news/search/`, {
+      const { data } = await postData(`http://tortkol.uz/authority_news/search`, {
         q: search,
       });
       return data;

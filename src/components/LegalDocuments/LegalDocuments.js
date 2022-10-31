@@ -13,12 +13,14 @@ export default function LegalDocuments() {
 		};
 
 		fetch(
-			`${BASE_URL}activity/Legal_Documents_Categories/`,
+			`${BASE_URL}activity/categories`,
 			options,
 		)
 			.then((response) => response.json())
 			.then((data) => setDocsCategory(data));
 	}, []); 
+
+	console.log('docsCategory', docsCategory);
 
 	return (
 		<LegalDocumentsStyled>

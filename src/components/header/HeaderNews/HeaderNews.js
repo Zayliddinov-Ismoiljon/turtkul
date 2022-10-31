@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Carousel } from 'antd';
 import { BASE_URL } from 'api/config';
+import { HeaderNewsStyled } from './HeaderNews.styles';
 
 export default function HeaderNews() {
 	const [headerNewsId, setHeaderNewsId] = useState([]);
@@ -12,7 +13,7 @@ export default function HeaderNews() {
 		const options = {
 			method: 'GET',
 			headers: {},
-		};
+		}; 
 
 		fetch(`${BASE_URL}authority_news/${id}`, options)
 			.then((response) => response.json())
@@ -22,7 +23,7 @@ export default function HeaderNews() {
 	}, []);
 
 	return (
-		<>
+		<HeaderNewsStyled>
 			<div
 				id='carouselExampleControls'
 				class='carousel slide'
@@ -39,7 +40,7 @@ export default function HeaderNews() {
 					{headerNewsId[1]?.map((item, i) => (
 						<div key={i} class='carousel-item'>
 							<img
-								style={{ width: '100%', height: '700px' }}
+								style={{ width: '100%'}}
 								src={item}
 								alt=''
 							/>
@@ -63,8 +64,8 @@ export default function HeaderNews() {
 					<span class='visually-hidden'>Next</span>
 				</button>
 			</div>
-			<h3>{headerNewsId[0]?.title}</h3>
+			<h3 className='headernews-title'>{headerNewsId[0]?.title}</h3>
 			<div dangerouslySetInnerHTML={{ __html: `${headerNewsId[0]?.body}` }} />
-		</>
+		</HeaderNewsStyled>
 	);
 }

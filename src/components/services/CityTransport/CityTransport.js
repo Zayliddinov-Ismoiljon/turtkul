@@ -1,5 +1,6 @@
 import { BASE_URL } from 'api/config'
 import React, { useEffect, useState } from 'react'
+import { CityTransportStyled } from './CityTransport.styles'
 
 export default function CityTransport() {
 
@@ -15,9 +16,9 @@ export default function CityTransport() {
     .then(data=>{ setCityTransport(data)})
   },[])
   return (
-    <>
-    <h3>{cityTransport.title}</h3>
+    <CityTransportStyled>
+    <h3 className='city-title'>{cityTransport.title}</h3>
     <p dangerouslySetInnerHTML={{ __html: `${cityTransport.body}` }} />
-    </>
+    </CityTransportStyled>
   )
 }

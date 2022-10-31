@@ -41,7 +41,7 @@ const Events = () => {
 				{homeEvents.map((item, i) => {
 					return (
 						<CardWrapper key={i}>
-							<Link to={`events/${item.id}`}>
+							<Link to={`/events/${item.id}`}>
               <img src={item.imagesown} alt='event-card-img' />
               </Link>
 							<CardText>
