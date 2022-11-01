@@ -29,7 +29,6 @@ export default function AboutGov() {
 			.then((response) => response.json())
 			.then((data) => {
 				setAboutGov(data);
-				console.log('aboutgov-modalka', data);
 			});
 	}, []);
 

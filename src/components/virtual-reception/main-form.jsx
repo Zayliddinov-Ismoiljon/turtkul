@@ -1,130 +1,80 @@
-import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import { MainFormWrapper, Textarea } from "./virtual-reception.styles";
-import SimpleModal from "./../common/modal";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchSupports,
-  postSupports,
-} from "store/reducer-and-action/supports/supportsSlice";
+import React, { useEffect, useState } from 'react';
+import { MainFormWrapper, Textarea } from './virtual-reception.styles';
+import fetch from 'isomorphic-fetch';
+import { BASE_URL } from 'api/config';
+import { Col, Input, message, Row, Button, Form, Space } from 'antd';
 
 const MainForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+	const [form] = Form.useForm();
 
-  const dispatch = useDispatch();
+	const [postSubmit, setPostSubmit] = useState([]);
+	const onSubmit = (values) => {
+		const options = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(values),
+		};
+		fetch(`${BASE_URL}services/Services_Appeal`, options)
+			.then((response) => response.json())
+			.then((data) => {
+				setPostSubmit(data);
+				form.resetFields();
+				success();
+			});
+	};
 
-  const data = useSelector((state) => state.supports);
+	const success = () => {
+		message.success('Arizangiz yuborildi');
+	};
 
-  const onSubmit = async (data) => {
-    await dispatch(postSupports(data));
-    dispatch(fetchSupports());
-  };
+	return (
+		<Form layout='vertical' form={form} onFinish={onSubmit} method='POST'>
+			<Row gutter={[12, 12]}>
+				<Col xs={24} sm={12} md={12} lg={12}>
+					<Form.Item name='first_name' label='First Name'>
+						<Input placeholder='fisrt name' />
+					</Form.Item>
+				</Col>
+				<Col xs={24} sm={12} md={12} lg={12}>
+					<Form.Item name='last_name' label='Last name Name'>
+						<Input placeholder='last name' />
+					</Form.Item>
+				</Col>
+				<Col xs={24} sm={12} md={12} lg={12}>
+					<Form.Item name='email' label='Email'>
+						<Input type='email' placeholder='email' />
+					</Form.Item>
+				</Col>
+				<Col xs={24} sm={12} md={12} lg={12}>
+					<Form.Item name='number' label='Number'>
+						<Input type='number' placeholder='number' />
+					</Form.Item>
+				</Col>
+				<Col xs={24} sm={12} md={12} lg={12}>
+					<Form.Item name='address' label='Address'>
+						<Textarea
+							style={{ width: '100%', height: '100px' }}
+							placeholder='address'
+						/>
+					</Form.Item>
+				</Col>
+				<Col xs={24} sm={12} md={12} lg={12}>
+					<Form.Item name='body' label='Body'>
+						<Textarea
+							style={{ width: '100%', height: '100px' }}
+							placeholder='body'
+						/>
+					</Form.Item>
+				</Col>
+			</Row>
 
-  useEffect(() => {
-    dispatch(fetchSupports());
-  }, [dispatch]);
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <MainFormWrapper>
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={12} md={8} lg={6}>
-            <TextField
-              type="text"
-              id="first_name"
-              label="First Name"
-              required
-              sx={{ width: "100%", marginBottom: 5 }}
-              {...register("first_name", {
-                required: true,
-                maxLength: 30,
-              })}
-            />
-            <TextField
-              type="text"
-              id="last_name"
-              label="Last Name"
-              sx={{ width: "100%", marginBottom: 5 }}
-              required
-              {...register("last_name", {
-                required: true,
-                maxLength: 30,
-              })}
-            />
-            <TextField
-              type="email"
-              id="email"
-              label="Email"
-              required
-              sx={{ width: "100%", marginBottom: 5 }}
-              {...register("email", { required: true, maxLength: 30 })}
-            />
-            <TextField
-              id="number"
-              label="Number"
-              type="number"
-              required
-              sx={{ width: "100%", marginBottom: 5 }}
-              {...register("number", { required: true, maxLength: 30 })}
-            />
-            <Textarea
-              aria-label="address"
-              minRows={3}
-              placeholder="Address"
-              style={{ width: "100%", marginBottom: 5 }}
-              required
-              id="address"
-              label="Address"
-              {...register("address", {
-                required: true,
-                maxLength: 100,
-              })}
-            />
-          </Grid>
-          <Grid item xs={12} sm={12} md={8} lg={6}>
-            <Textarea
-              aria-label="Body"
-              minRows={3}
-              placeholder="Body"
-              style={{ width: "100%", marginBottom: 5 }}
-              required
-              id="body"
-              label="Body"
-              {...register("body", { required: true, maxLength: 200 })}
-            />
-            {/* <TextField
-              type="date"
-              id="date"
-              label="date"
-              sx={{ width: "100%", marginBottom: 5 }}
-              required
-              {...register("date", {
-                required: true,
-                maxLength: 30,
-              })}
-            /> */}
-          </Grid>
-        </Grid>
-        <SimpleModal
-          head={"FUQAROLARNI MUROJAATLARINI KO`RIB ChIQISh TARTIBI"}
-          p={"loram..."}
-          button={
-            "I got acquainted with the rules of procedure for consideration of appeals in the municipality."
-          }
-        />
-        <Button type="submit" variant="outlined">
-          Submit
-        </Button>
-      </MainFormWrapper>
-    </form>
-  );
+			<Space>
+      <Button htmlType='submit' type='primary'>
+				Jo'natish
+			</Button>
+      </Space>
+		</Form>
+	);
 };
 
 export default MainForm;

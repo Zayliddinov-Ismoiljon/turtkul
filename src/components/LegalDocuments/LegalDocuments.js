@@ -17,18 +17,17 @@ export default function LegalDocuments() {
 			options,
 		)
 			.then((response) => response.json())
-			.then((data) => setDocsCategory(data));
+			.then((data) => {setDocsCategory(data)});
 	}, []); 
 
-	console.log('docsCategory', docsCategory);
 
 	return (
 		<LegalDocumentsStyled>
 			<Row gutter={[12, 12]}>
 				{docsCategory?.map((item, i) => (
 					<Col xs={24} sm={12} md={12} lg={12} key={i}>
-						<Link to={`/activity/${item}`}>
-							<Card className='document-card'>{item}</Card>
+						<Link to={`/activity/${item.name}`}>
+							<Card className='document-card'>{item.title}</Card>
 						</Link>
 					</Col>
 				))}
@@ -36,6 +35,3 @@ export default function LegalDocuments() {
 		</LegalDocumentsStyled>
 	);
 }
-
-
-///value key tariqasida bolishi kerak masalan kelayotgan malumot keyda  valueda ozbekcha malumot

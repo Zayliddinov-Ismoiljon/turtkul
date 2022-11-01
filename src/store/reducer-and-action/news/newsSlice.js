@@ -3,6 +3,7 @@ import {
   createSelector,
   createSlice,
 } from "@reduxjs/toolkit";
+import { BASE_URL } from "api/config";
 import { getData } from "api/operations";
 import DEFAULT_IMAGE from "assets/default-news-img.jpg";
 import { postData } from "./../../../api/operations";
@@ -82,7 +83,7 @@ searchNews = createAsyncThunk(
   "news/searchNews",
   async ({ search, activeLanguageName }) => {
     if (search) {
-      const { data } = await postData(`http://tortkol.uz/authority_news/search`, {
+      const { data } = await postData(`${BASE_URL}/authority_news/search`, {
         q: search,
       });
       return data;

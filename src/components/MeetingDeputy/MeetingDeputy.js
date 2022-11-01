@@ -14,7 +14,6 @@ export default function MeetingDeputy() {
 			.then((response) => response.json())
 			.then((data) => setMeetingDeputy(data));
 	}, []);
-	console.log(meetingDeputy);
 	return (
 		<MeetingDeputyStyled>
 			<h3 className='meeting-title'>{meetingDeputy.title}</h3>

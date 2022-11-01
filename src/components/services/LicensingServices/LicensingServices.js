@@ -12,7 +12,7 @@ export default function LicensingServices() {
 
     fetch(`${BASE_URL}services/Services_Licence`, options)
     .then(response=>response.json())
-    .then(data=> {setLicensingServices(data); console.log(licensingServices);})
+    .then(data=> {setLicensingServices(data)})
   },[])
   return (
     <LicensingServicesStyled>

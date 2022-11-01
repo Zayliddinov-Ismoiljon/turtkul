@@ -6,13 +6,14 @@ import { Card, Tabs } from 'antd';
 import { VacancyStyled } from './Vacancy.styles';
 
 export default function Vacancy() {
-
-	const [activeKey, setActiveKey] = useState('1')
+	const [activeKey, setActiveKey] = useState('1');
 
 	return (
-		<VacancyStyled style={{width:'100%'}}>
-			<div className='vacancy__list'>
-			<Tabs   defaultActiveKey='1' activeKey={activeKey} onChange={(e)=>setActiveKey(e)}>
+		<VacancyStyled>
+			<Tabs
+				defaultActiveKey='1'
+				activeKey={activeKey}
+				onChange={(e) => setActiveKey(e)}>
 				<Tabs.TabPane tab="Ma'lumot" key='1'>
 					<ActionsInAccordionSummary setActiveKey={setActiveKey} />
 				</Tabs.TabPane>
@@ -20,7 +21,6 @@ export default function Vacancy() {
 					<SubmitResume />
 				</Tabs.TabPane>
 			</Tabs>
-		</div>
 		</VacancyStyled>
 	);
 }

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Icon from '@material-ui/core/Icon';
 import fetch from 'isomorphic-fetch';
-
-
+import {message, Space } from 'antd';
 
 import {
 	Form,
 	Input,
-  Button,
+	Button,
 	Radio,
 	Select,
 	Cascader,
@@ -20,13 +19,12 @@ import {
 	Row,
 	Col,
 } from 'antd';
-import { set } from 'react-hook-form';
 import { BASE_URL } from 'api/config';
 
 const { TextArea } = Input;
 
 const SubmitResume = () => {
-	const [form] = Form.useForm()
+	const [form] = Form.useForm();
 	const [currentVacancy, setCurrentVacancy] = useState([]);
 
 	useEffect(() => {
@@ -35,59 +33,54 @@ const SubmitResume = () => {
 			headers: {},
 		};
 
-		fetch(
-			`${BASE_URL}about_authority/Vacancies_Model`,
-			options,
-		)
+		fetch(`${BASE_URL}about_authority/Vacancies_Model`, options)
 			.then((response) => response.json())
 			.then((data) => {
 				setCurrentVacancy(data);
 			});
 	}, []);
 
-	
-  const [postSubmit, setPostSubmit]= useState([])
-	const  onSubmit=(values)=> {
-		const options={
-			method:"POST",
-			headers:{'Content-Type': 'application/json'},
-			body: JSON.stringify(values)
-		}
+	const [postSubmit, setPostSubmit] = useState([]);
+	const onSubmit = (values) => {
+		const options = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(values),
+		};
 		fetch(`${BASE_URL}about_authority/Job_Applications_Model`, options)
-		.then(response=>response.json())
-		.then(data=>{setPostSubmit(data);
-		form.resetFields()})
+			.then((response) => response.json())
+			.then((data) => {
+				setPostSubmit(data);
+				form.resetFields();
+				success()
+			});
+	};
 
-		}
 
 	const nations = [
-		{key:'another',value: 'boshqa'},
-		{key:'uzbek',value: "o'zbek"},
-		{key:'qaraqalpoq',value: 'qoraqalpoq'},
-		{key:'qirgyiz',value: "qirg'iz"},
-		{key:'tadjik',value: 'tojik'},
-		{key:'turkman',value: 'turkman'},
-		{key:'qazaq',value: 'qozoq'},
-		{key:'tatar',value: 'tatar'},
-		{key:'rus',value: 'rus'},
-		{key:'turk',value: 'turk'},
+		{ key: 'another', value: 'boshqa' },
+		{ key: 'uzbek', value: "o'zbek" },
+		{ key: 'qaraqalpoq', value: 'qoraqalpoq' },
+		{ key: 'qirgyiz', value: "qirg'iz" },
+		{ key: 'tadjik', value: 'tojik' },
+		{ key: 'turkman', value: 'turkman' },
+		{ key: 'qazaq', value: 'qozoq' },
+		{ key: 'tatar', value: 'tatar' },
+		{ key: 'rus', value: 'rus' },
+		{ key: 'turk', value: 'turk' },
 	];
 
 	const family_statuses = [
-		{key: 'uylangan',value: 'uylangan'},
-		{key: 'uylanmagan',value: 'uylanmagan'},
-		{key: 'turmush_qurgan',value: 'turmush_qurgan'},
-		{key: 'turmush_qurmagan',value: 'turmush_qurmagan'},
-		{key: 'ajrashgan',value: 'ajrashgan'},
+		{ key: 'uylangan', value: 'uylangan' },
+		{ key: 'uylanmagan', value: 'uylanmagan' },
+		{ key: 'turmush_qurgan', value: 'turmush_qurgan' },
+		{ key: 'turmush_qurmagan', value: 'turmush_qurmagan' },
+		{ key: 'ajrashgan', value: 'ajrashgan' },
 	];
 
-
-	const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-
-	// const onSubmit = (values) => {
-	// 	console.log(values);
-	// };
+	const success = () => {
+		message.success('Arizangiz yuborildi');
+	};
 
 	return (
 		<>
@@ -95,7 +88,9 @@ const SubmitResume = () => {
 				<Form.Item name='vacancies' label='Бўш иш ўринлари *'>
 					<Select>
 						{currentVacancy.map((e, i) => (
-							<Select.Option key={i} value={e.id}>{e.job}</Select.Option>
+							<Select.Option key={i} value={e.id}>
+								{e.job}
+							</Select.Option>
 						))}
 					</Select>
 				</Form.Item>
@@ -105,15 +100,13 @@ const SubmitResume = () => {
 				<Row gutter={24}>
 					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='birth' label='Дата рождения *'>
-							{/* <DatePicker /> */}
-							<Input type='date'/>
+							<Input type='date' />
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={8} md={8} lg={8}>
 						<Form.Item name='nation' label='Миллатингиз *'>
 							<Select>
 								{nations.map((item) => (
-
 									<Select.Option key={item.key} value={item.key}>
 										{item.value}
 									</Select.Option>
@@ -139,16 +132,6 @@ const SubmitResume = () => {
 							<Input />
 						</Form.Item>
 					</Col>
-					{/* <Col xs={24} sm={8} md={8} lg={8}>
-						<Form.Item  label='Манзил' >
-							<Input placeholder='Manzil' />
-						</Form.Item>
-					</Col>
-					<Col xs={24} sm={8} md={8} lg={8}>
-						<Form.Item  label=' '>
-							<Input placeholder='Manzil' />
-						</Form.Item>
-					</Col> */}
 				</Row>
 				<Row gutter={24}>
 					<Col xs={24} sm={8} md={8} lg={8}>
@@ -172,7 +155,9 @@ const SubmitResume = () => {
 						<Form.Item name='educated' label='Маълумотингиз *'>
 							<Select>
 								<Select.Option value='highly'>Oliy</Select.Option>
-								<Select.Option value='medium_special'>O'rta-maxsus</Select.Option>
+								<Select.Option value='medium_special'>
+									O'rta-maxsus
+								</Select.Option>
 								<Select.Option value='medium'>O'rta malumot</Select.Option>
 							</Select>
 						</Form.Item>
@@ -183,34 +168,34 @@ const SubmitResume = () => {
 						</Form.Item>
 					</Col>
 				</Row>
-				<Row gutter={[12,12]}>
+				<Row gutter={[12, 12]}>
 					<Col xs={24} sm={8} md={8} lg={8}>
-						<Form.Item name='graduated_year' label='Қайси таълим муассасасини тамомлагансиз *'>
-							<Input placeholder='Йил' type='date'/>
+						<Form.Item
+							name='graduated_year'
+							label='Қайси таълим муассасасини тамомлагансиз *'>
+							<Input placeholder='Йил' type='date' />
 						</Form.Item>
 					</Col>
 					<Col xs={24} sm={16} md={16} lg={16}>
 						<Form.Item name='educational_institution' label=' '>
 							<Input placeholder='Таълим муассасасини номи' />
 						</Form.Item>
-						{/* <Form.Item name='date' label='yuborish vaqti'>
-							<Input type='date'/>
-						</Form.Item> */}
 					</Col>
 				</Row>
 				<Row gutter={24}>
-					{/* <Col xs={24} sm={12} md={12} lg={12}>
-						<Form.Item label='Ишга киришишдан мамнунмиз'>
-							<TextArea rows={5} placeholder='Ушбу банд жуда муҳим! Уни қай даражада қисқа ва мазмунли ёритишингизга қараб, давлат солиқ хизмати тизимида ўрин топишингизда хулоса чиқарилади.'/>
-						</Form.Item>
-					</Col> */}
-          <Col xs={24} sm={12} md={12} lg={12}>
+					<Col xs={24} sm={12} md={12} lg={12}>
 						<Form.Item name='additional_info' label='Қўшимча маълумотлар'>
-							<TextArea rows={5} placeholder=''/>
+							<TextArea rows={5} placeholder='' />
 						</Form.Item>
 					</Col>
 				</Row>
-				<Button htmlType='submit' type='primary'>Jo'natish</Button>
+				<Space>
+				<Button
+					htmlType='submit'
+					type='primary'>
+					Jo'natish
+				</Button>
+				</Space>
 			</Form>
 		</>
 	);

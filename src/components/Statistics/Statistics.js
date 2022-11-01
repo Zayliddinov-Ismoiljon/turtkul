@@ -17,7 +17,7 @@ const Statistics = () => {
 
 		fetch(`${BASE_URL}about_authority/Statistics_Model`, options)
 		.then(response=> response.json())
-	.then(data=> {setStatistic(data); console.log('statisticData', data);})
+	.then(data=> {setStatistic(data)})
 	},[])
 	
 	const data = [

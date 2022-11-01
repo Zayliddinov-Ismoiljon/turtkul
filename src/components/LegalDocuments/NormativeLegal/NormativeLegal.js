@@ -15,7 +15,7 @@ export default function NormativeLegal() {
 			options,
 		)
 			.then((response) => response.json())
-			.then((data) => setNormativeLegal(data));
+			.then((data) => {setNormativeLegal(data)});
 	}, []);
   return (
     <NormativeLegalStyled>

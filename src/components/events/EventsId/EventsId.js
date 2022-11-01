@@ -18,7 +18,6 @@ export default function EventsId() {
 			.then((response) => response.json())
 			.then((data) => {
         setEventsId(data);
-				console.log("eventsId data", data);
 			});
 	}, []);
 	return (
