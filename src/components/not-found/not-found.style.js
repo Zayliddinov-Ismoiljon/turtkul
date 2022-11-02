@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import notFoundImg from "assets/not-found/not-found.jpg";
+import notFoundImg from "assets/images/not-found/not-found.jpg";
 
 export const Wrapper = styled.div`
   width: 100%;

@@ -5,8 +5,8 @@ import {
 } from "@reduxjs/toolkit";
 import { BASE_URL } from "api/config";
 import { getData } from "api/operations";
-import DEFAULT_IMAGE from "assets/default-news-img.jpg";
-import { postData } from "./../../../api/operations";
+import DEFAULT_IMAGE from "assets/images/default-news-img.jpg";
+import { postData } from "api/operations";
 
 const initialState = {
   activeFilter: "",

@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { HeaderNewsItemWrapper } from './header.styles';
 
 const HeaderNewsItem = ({ news }) => {
+
+	const toDate=(date)=>new Date(date).toLocaleString('en-US', { day: 'numeric', month: 'numeric',year:"numeric" })
+
 	return (
 		<>
 			{news?.length ? (
@@ -20,7 +23,7 @@ const HeaderNewsItem = ({ news }) => {
 							</Link>
 							<div className='card-info'>
 								<p>{news[0]?.title}</p>
-								<p>{news[0]?.date}</p>
+								<p>{toDate(news[0]?.date)}</p>
 							</div>
 						</Col>
 						<Col md={24} xl={12}>
@@ -41,7 +44,7 @@ const HeaderNewsItem = ({ news }) => {
 												</Link>
 												<div className='card-info'>
 													<p>{item?.title}</p>
-													<p>{item?.date}</p>
+													<p>{toDate(item?.date)}</p>
 												</div>
 											</Col>
 										),

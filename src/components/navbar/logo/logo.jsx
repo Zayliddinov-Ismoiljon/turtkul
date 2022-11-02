@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import logo from "assets/site-logo.png";
+import logo from "assets/images/site-logo.png";
 import { LogoWrapper } from "./logo.styles";
 import AOS from "aos";
 import "aos/dist/aos.css";

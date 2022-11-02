@@ -9,15 +9,13 @@ import 'aos/dist/aos.css';
 
 const FilteredNewsItems = ({ news = [], newsFilter }) => {
 
-	// console.log("asda",news)
-
 	useEffect(() => {
 		AOS.init();
 		AOS.refresh();
 	}, []);
 
 	
-
+const toDate=(date)=>new Date(date).toLocaleString('en-US', { day: 'numeric', month: 'numeric',year:"numeric" })
 	return (
 		<NewsWrapper>
 			{news?.length ? (
@@ -46,7 +44,7 @@ const FilteredNewsItems = ({ news = [], newsFilter }) => {
 												}}
 											/>
 											<h5>
-												<EventIcon /> {news_item.date}
+												<EventIcon /> {toDate(news_item.date)}
 											</h5>
 										</NewsInfo>
 									</Grid>

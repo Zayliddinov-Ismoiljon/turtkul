@@ -7,11 +7,11 @@ import {
   Left,
   FooterBottom,
 } from "./footer.style";
-import logo from "assets/resoursesImgs/logo.png";
+import logo from "assets/images/resoursesImgs/logo.png";
 import CallIcon from "@mui/icons-material/Call";
 import { useSelector } from "react-redux";
 import { getFooterData } from "store/reducer-and-action/language/language";
-import stiker from "assets/footerImg/stiker.PNG";
+import stiker from "assets/images/footerImg/stiker.PNG";
 import { BASE_URL } from "api/config";
 
 import './footer.css'

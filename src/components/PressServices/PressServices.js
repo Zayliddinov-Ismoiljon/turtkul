@@ -20,7 +20,7 @@ export default function PressServices() {
 		<PressServicesStyled>
 			<h2 className='services-title'>Matbuot xizmati</h2>
 			<Row gutter={[12, 12]}>
-				<Col xs={24} sm={4} md={4} lg={4}>
+				<Col style={{display:'block', marginLeft:'auto', marginRight:'auto'}} xs={24} sm={18} md={18} lg={18}>
 					<img className='services-img' src={pressServices.image} alt='images' />
 				</Col>
 				<Col xs={24} sm={16} md={16} lg={16}>

@@ -1,7 +1,7 @@
 import React from "react";
 import Hypnosis from "react-cssfx-loading/lib/Hypnosis";
 import styled from "styled-components";
-import logo from "assets/site-logo.png";
+import logo from "assets/images/site-logo.png";
 
 const Wrapper = styled.div`
   width: 100%;

@@ -8,6 +8,9 @@ margin-top: 30px;
 }
 
 .statement-img{
-  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
 }
+
 `;

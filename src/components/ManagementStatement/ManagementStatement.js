@@ -23,10 +23,10 @@ export default function ManagementStatement() {
 		<StatementStyled>
 			<h3 className='statement-title'>Rahbariyat bayonotlari</h3>
 			<Row gutter={[12, 12]}>
-				<Col xs={24} sm={4} md={4} lg={4}>
-					<img className='statement-img' src={managementStatement.image} alt='image' />
+				<Col style={{display:'block', marginLeft:'auto', marginRight:'auto'}} xs={24} sm={18} md={18} lg={18}>
+					<img width={'100%'}  className='statement-img' src={managementStatement.image} alt='image' />
 				</Col>
-				<Col style={{marginBottom:'30px'}} xs={24} sm={16} md={16} lg={16}>
+				<Col xs={24} sm={24} md={24} lg={24}>
 					<h3>{managementStatement.title}</h3>
 					<p
 						dangerouslySetInnerHTML={{ __html: `${managementStatement.body}` }}

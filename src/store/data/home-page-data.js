@@ -1,7 +1,7 @@
-import img from "assets/eventImgs/event-card-img.png";
-import city1 from "assets/cityImgs/city1.jpg";
-import city2 from "assets/cityImgs/city2.jpg";
-import logo from "assets/resoursesImgs/logo.png";
+import img from "assets/images/eventImgs/event-card-img.png";
+import city1 from "assets/images/cityImgs/city1.jpg";
+import city2 from "assets/images/cityImgs/city2.jpg";
+import logo from "assets/images/resoursesImgs/logo.png";
 
 export const newsData = {
   uz: {

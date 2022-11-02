@@ -117,7 +117,7 @@ module.exports = {
           title: "Kapitalni yaxshilash",
         },
         {
-          route: "social",
+          route: "society-protection",
           title: "Jamiyat va himoya",
         },
         {

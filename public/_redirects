@@ -1,3 +1,6 @@
  /* /index.html 200
- 
- Redirect 301 "/old_url.html" "/new_url.html"
+
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
