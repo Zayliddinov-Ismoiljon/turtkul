@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { GoLocation } from "react-icons/go";
 import { BsTelephone } from "react-icons/bs";
@@ -8,9 +8,24 @@ import { Link } from "react-router-dom";
 import { LangSelect } from "./lang-select";
 import SwitchTheme from "components/switch/switch";
 import { useMediaQuery } from "@mui/material";
+import { useEffect } from "react";
+import { BASE_URL } from "api/config";
 
 const SpecMenu = () => {
   const match = useMediaQuery("(min-width:915px)");
+
+  const [menuEmail, setMenuEmail]= useState([]);
+
+  useEffect(()=>{
+    const options={
+      method:'GET',
+      headers:{}
+    }
+
+    fetch(`${BASE_URL}home/footer/`, options)
+    .then(response=> response.json())
+    .then(data=> {setMenuEmail(data); console.log('dataEmail', data)})
+  },[])
 
   return (
     <Wrapper>
@@ -19,7 +34,7 @@ const SpecMenu = () => {
           <AiOutlineMail />
           <span>
             <a href="mailto:turtkul-gov@gmail.com">
-              &nbsp; turtkul-gov@gmail.com
+              &nbsp; {menuEmail.email}
             </a>
           </span>
         </div>
@@ -33,7 +48,7 @@ const SpecMenu = () => {
             </div>
             <div>
               <BsTelephone />
-              <span>&nbsp; +998 99 999 99 99</span>
+              <span>&nbsp; {menuEmail.number}</span>
             </div>
           </>
         )}
