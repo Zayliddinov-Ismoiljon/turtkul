@@ -11,7 +11,6 @@ export default function AntiCorruption() {
         
       }
     };
-
     fetch(
       `${BASE_URL}/anti_corruption/Anticorruption_News`, options
     )

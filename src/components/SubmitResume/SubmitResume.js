@@ -41,6 +41,7 @@ const SubmitResume = () => {
 	}, []);
 
 	const [postSubmit, setPostSubmit] = useState([]);
+
 	const onSubmit = (values) => {
 		const options = {
 			method: 'POST',
@@ -81,7 +82,6 @@ const SubmitResume = () => {
 	const success = () => {
 		message.success('Arizangiz yuborildi');
 	};
-
 	return (
 		<>
 			<Form layout='vertical' form={form} onFinish={onSubmit} method='POST'>

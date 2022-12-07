@@ -24,7 +24,7 @@ const SpecMenu = () => {
 
     fetch(`${BASE_URL}home/footer/`, options)
     .then(response=> response.json())
-    .then(data=> {setMenuEmail(data); console.log('dataEmail', data)})
+    .then(data=> {setMenuEmail(data);})
   },[])
 
   return (
@@ -43,7 +43,7 @@ const SpecMenu = () => {
             <div>
               <GoLocation />
               <span>
-                <Link to="/">&nbsp;Toshkent shahri, I.Karimov kochasi, 51</Link>
+                <Link to="/">&nbsp;{menuEmail.direction}</Link>
               </span>
             </div>
             <div>

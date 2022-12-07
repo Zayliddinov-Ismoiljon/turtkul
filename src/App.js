@@ -1,4 +1,3 @@
-import Loader from "components/common/loader/loader";
 import { Suspense, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "routes/config";
@@ -7,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "store/reducer-and-action/news/newsSlice";
 import FirstLoading from "components/first-loading";
 import { Toaster } from "react-hot-toast";
-
 import "assets/style/index.css"
 
 function App() {
@@ -19,13 +17,12 @@ function App() {
       pending,
     })
   );
-
   useEffect(() => {
     if ((!fulfilled, !pending)) {
       dispatch(fetchNews);
     }
   }, []);
-
+  
   return (
     <ThemeProvider>
       <Suspense fallback={<FirstLoading expanded />}>
