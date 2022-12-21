@@ -2,6 +2,8 @@ import img from "assets/images/eventImgs/event-card-img.png";
 import city1 from "assets/images/cityImgs/city1.jpg";
 import city2 from "assets/images/cityImgs/city2.jpg";
 import logo from "assets/images/resoursesImgs/logo.png";
+import city3 from '../../assets/images/cityImgs/uzbekistan-hotel.jpg'
+import city4 from '../../assets/images/cityImgs/country-flag.jpg'
 
 export const newsData = {
   uz: {
@@ -259,23 +261,23 @@ export const cityData = {
     cards: [
       {
         img: city1,
-        title: "Lorem ipsum dolor sit.",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        title: "Tarixiy obidalar",
+        desc: "Davlat delegatsiyasi tarixiy obidalarni mehmonlar bilan sayohatga chiqdi",
       },
       {
         img: city2,
-        title: "Lorem ipsum dolor sit.",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        title: "Xalqaro forumlar saroyi",
+        desc: "Toshkent xalqaro forumlari saroyiga xush kelibsiz. Bu erda siz Toshkent shahridagi Xalqaro Forumlar",
       },
       {
-        img: city1,
-        title: "Lorem ipsum dolor sit.",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        img: city3,
+        title: "O'zbekiston Mehmonxonasi",
+        desc: "O'zbekiston mehmonhonasida chet eldan kelgan mehmonlarni tan-tanali ravishda kutib oldi",
       },
       {
-        img: city2,
-        title: "Lorem ipsum dolor sit.",
-        desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        img: city4,
+        title: "O'zbekiston Respublikasi bayrog'i",
+        desc: "18-noyabr kuni tumanimizda davlat bayrog'i tasdiqlangan kunni nisholandi.",
       },
     ],
   },
