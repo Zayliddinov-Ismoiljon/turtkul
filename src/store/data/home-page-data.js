@@ -3,7 +3,14 @@ import city1 from "assets/images/cityImgs/city1.jpg";
 import city2 from "assets/images/cityImgs/city2.jpg";
 import logo from "assets/images/resoursesImgs/logo.png";
 import city3 from '../../assets/images/cityImgs/uzbekistan-hotel.jpg'
-import city4 from '../../assets/images/cityImgs/country-flag.jpg'
+import city4 from '../../assets/images/cityImgs/country-flag.jpg';
+import sama from '../../assets/images/resoursesImgs/sama.jpg'
+import lexuz from '../../assets/images/resoursesImgs/lexuz.jpg'
+import mitc from '../../assets/images/resoursesImgs/mitc.jpg'
+import uzafi from '../../assets/images/resoursesImgs/uzafi.jpg'
+import cyber from '../../assets/images/resoursesImgs/cyber.jpg'
+import soliq from '../../assets/images/resoursesImgs/soliq.jpg'
+import portal from '../../assets/images/resoursesImgs/portal.jpg'
 
 export const newsData = {
   uz: {
@@ -318,39 +325,39 @@ export const resoursesData = {
         website: "pm.gov.uz",
       },
       {
-        logo: logo,
-        name: "O'zbekiston Respublikasi Prezident Virtual qabulxonasi",
-        website: "pm.gov.uz",
+        logo: sama,
+        name: "Davlat aktivlarini boshqarish agentligi",
+        website: "davaktiv.uz",
       },
       {
-        logo: logo,
-        name: "O'zbekiston Respublikasi Prezident Virtual qabulxonasi",
-        website: "pm.gov.uz",
+        logo: lexuz,
+        name: "O'zbekiston Respublikasi Qonun Hujatlari Milliy Bazasi",
+        website: "www.lex.uz",
       },
       {
-        logo: logo,
-        name: "O'zbekiston Respublikasi Prezident Virtual qabulxonasi",
-        website: "pm.gov.uz",
+        logo: mitc,
+        name: "O'zbekiston Respublikasi Axborot Texnalogiyalarini rivojlantirish",
+        website: "www.mitc.uz",
       },
       {
-        logo: logo,
-        name: "O'zbekiston Respublikasi Prezident Virtual qabulxonasi",
-        website: "pm.gov.uz",
+        logo: uzafi,
+        name: "O'zbekiston Respublikasi Investitsiya salohiyati portali",
+        website: "www.invest.uz",
       },
       {
-        logo: logo,
-        name: "O'zbekiston Respublikasi Prezident Virtual qabulxonasi",
-        website: "pm.gov.uz",
+        logo: cyber,
+        name: "Kiberxavfsizlik markazi",
+        website: "www.tace.uz",
       },
       {
-        logo: logo,
-        name: "O'zbekiston Respublikasi Prezident Virtual qabulxonasi",
-        website: "pm.gov.uz",
+        logo: soliq,
+        name: "O'zbekiston Respublikasi Soliq Qo'mitasi",
+        website: "www.soliq.uz",
       },
       {
-        logo: logo,
-        name: "O'zbekiston Respublikasi Prezident Virtual qabulxonasi",
-        website: "pm.gov.uz",
+        logo: portal,
+        name: "O'zbekiston Respublikasi Hukumat Portali",
+        website: "www.gov.uz",
       },
     ],
   },

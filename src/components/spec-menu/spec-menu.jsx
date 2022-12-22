@@ -34,7 +34,7 @@ const SpecMenu = () => {
           <AiOutlineMail />
           <span>
             <a href="mailto:turtkul-gov@gmail.com">
-              &nbsp; {menuEmail.email}
+              &nbsp; hokimiyat@gmail.com
             </a>
           </span>
         </div>
@@ -43,12 +43,12 @@ const SpecMenu = () => {
             <div>
               <GoLocation />
               <span>
-                <Link to="/">&nbsp;{menuEmail.direction}</Link>
+                <Link to="/">&nbsp;Amir Temur ko'chasi 108-A uy</Link>
               </span>
             </div>
             <div>
               <BsTelephone />
-              <span>&nbsp; {menuEmail.number}</span>
+              <span>&nbsp; 71-255-98-37</span>
             </div>
           </>
         )}

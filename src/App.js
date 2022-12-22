@@ -8,6 +8,8 @@ import FirstLoading from "components/first-loading";
 import { Toaster } from "react-hot-toast";
 import "assets/style/index.css"
 
+import './App.css'
+
 function App() {
   const dispatch = useDispatch();
   const { fulfilled, pending } = useSelector(

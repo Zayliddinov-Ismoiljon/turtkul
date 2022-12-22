@@ -20,15 +20,15 @@ export default function Government() {
       `${BASE_URL}/about_authority/models/Electronic_Government_Model`, options
     )
       .then((response) => response.json())
-      .then((data) => {setEGovernment(data)});
+      .then((data) => {setEGovernment(data); console.log("egover", data);});
   },[])
 
   return (
     <GovermentStyled>
     <h1 className='govermentTitle'>elektron hukumat</h1>
         <Row gutter={[12,12]}>
-          <Col xs={24} sm={6} md={6} lg={6}>
-          <img className='goverment-img' src={eGovernment.image} alt="electron government image" />
+          <Col xs={24} sm={12} md={12} lg={12}>
+          <img className='goverment-img' src={eGovernment.image} alt="electron government image" /> <br/>
           </Col>
           <Col xs={24} sm={12} md={12} lg={12}>
           <h3>{eGovernment.title}</h3>
