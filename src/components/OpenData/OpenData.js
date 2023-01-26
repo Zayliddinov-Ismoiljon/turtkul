@@ -17,11 +17,22 @@ export default function OpenData() {
 			.then((response) => response.json())
 			.then((data) => setOpenData(data));
 	}, []);
+
+	console.log("open Data==>>", openData);
+
 	return (
 		<OpenDataStyled>
-			<img className='opendata-img' src={openData.image} alt='image' />
-			<h3 className='opendata-title'>{openData.title}</h3>
-			<p dangerouslySetInnerHTML={{ __html: `${openData.body}` }} />
+			{
+				openData.map((item,i)=>(
+					<>
+						<img className='opendata-img' src={item.image} alt="image" />
+						<h5 className='opendata-title'>{item.title}</h5>
+						<p dangerouslySetInnerHTML={{ __html: `${item.body}` }} /> 
+						<time>{item.date}</time>
+						<hr />
+					</>
+				))
+			}
 		</OpenDataStyled>
 	);
 }

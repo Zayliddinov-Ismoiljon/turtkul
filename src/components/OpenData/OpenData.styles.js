@@ -7,7 +7,8 @@ margin-top: 30px;
   width: 70%;
   border-radius: 10px;
   display: block;
-  margin: 0 auto;
+  margin: 15px auto;
+  object-fit: cover;
 }
 
 .opendata-title{

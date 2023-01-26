@@ -13,3 +13,7 @@
 .sc-hGglLj{
   height: 270px;
 }
+
+img{
+  object-fit: cover;
+}
