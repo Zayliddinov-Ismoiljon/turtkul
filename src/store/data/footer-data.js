@@ -1,9 +1,9 @@
 module.exports = {
   uz: {
-    title: "Toshkent shahar hokimligi rasmiy-veb sayti",
-    location: "Toshkent shahri, I.Karimov ko`chasi, 51",
+    title: "Tortko'l shahar hokimligi rasmiy-veb sayti",
+    location: "To'rko'l shahri, To‘rtko‘l ko‘chasi 53-uy.",
     copyright:
-      "© 2022 Toshkent shahar hokimligi. Barcha huquqlar himoyalangan.",
+      "© 2022 To‘rtko‘l shahar hokimligi. Barcha huquqlar himoyalangan.",
     requirement:
       "Ushbu saytda chop etilgan materiallardan foydalanishda ulanish talab qilinadi.",
     contact: "Matbuot xizmati",
@@ -11,7 +11,7 @@ module.exports = {
   },
   ru: {
     title: "Официальный сайт хокимията города Ташкента",
-    location: "Ташкент, улица Ислама Каримова, 51",
+    location: "Tурткул, улица Tурткул, 51",
     copyright: "© 2022 Хокимият города Ташкента. Все права защищены",
     requirement:
       "При использовании материалов сайта ссылка на источник обязательна.",

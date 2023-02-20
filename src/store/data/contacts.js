@@ -5,18 +5,18 @@ module.exports = {
     email:
       "Yuridik va jismoniy shaxslar murojaatlari uchun: murojaatlar@tashkent.uz",
     phoneNumbers: `
-         <div>Toshkent shahar hokimligi</div>71-210-03-47 
+         <div>To‘rtko‘l shahar hokimligi</div>71-210-03-47 
          Murojaatlar bilan ishlash bo'limi. \n
 
          71-210-01-63 
          Matbuot xizmati. 
 
-         71-210-03-36 Toshkent shahar hokimligi Umumiy bo'limi. 
-         info@toshkent.uz`,
+         71-210-03-36 To‘rtko‘l shahar hokimligi Umumiy bo'limi. 
+         info@tortkol.uz`,
     socialMedias: `
          Telegram-kanal: https://t.me/poytaxt_uz
 
-         Facebook-sahifa: https://www.facebook.com/Toshkenthokimligi
+         Facebook-sahifa: https://www.facebook.com/To‘rtko‘lhokimligi
 
          Instagram-sahifa: https://www.instagram.com/toshshaharhokimlik/`,
     more: `
@@ -24,7 +24,7 @@ module.exports = {
 
          Dam olish kunlari: shanba va yakshanba
 
-         Mo\`ljal: Toshkent Iqtisodiyot Universiteti
+         Mo\`ljal: To‘rtko‘l Iqtisodiyot Universiteti
 
          Bekat: Xalqlar do\`stligi
 
@@ -46,12 +46,12 @@ module.exports = {
          71 210-01-63 Пресс - служба хокимията города Ташкента.
          
          Для министерств и ведомств:
-         info@toshkent.uz
+         info@tortkol.uz
          71 210-03-36 Общий отдел хокимията города Ташкента.`,
     socialMedias: `
          Telegram-канал: https://t.me/poytaxt_uz
 
-         Facebook-страница: https://www.facebook.com/Toshkenthokimligi
+         Facebook-страница: https://www.facebook.com/To‘rtko‘lhokimligi
          
          Instagram-страница: https://www.instagram.com/toshshaharhokimlik/`,
     more: `

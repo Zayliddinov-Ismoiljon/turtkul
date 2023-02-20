@@ -8,7 +8,7 @@ export const ManagementData = {
   uz: [
     {
       img: img1,
-      title: "Toshkent shahar hokimi",
+      title: "Tortko'l shahar hokimi",
       name: "Artikxodjaev Jaxongir Abidovich",
       phone: "",
       email: "E-pochta: j.artikkhodjaev@tashkent.uz",
@@ -30,7 +30,7 @@ export const ManagementData = {
     {
       img: img3,
       title:
-        "Toshkent shahar hokimining arxitektura, kapital qurilish va kommunikatsiyalarni rivojlantirish masalalari bo‘yicha birinchi o‘rinbosari",
+        "Tortko'l shahar hokimining arxitektura, kapital qurilish va kommunikatsiyalarni rivojlantirish masalalari bo‘yicha birinchi o‘rinbosari",
       name: "Raxmonov Baxtiyor Sultonovich",
       phone: "Telefon: 71 210-02-01",
       email: "E-pochta: b.raxmonov@tashkent.uz",
@@ -51,7 +51,7 @@ export const ManagementData = {
     },
     {
       img: img1,
-      title: "Toshkent shahar hokimi",
+      title: "Tortko'l shahar hokimi",
       name: "Artikxodjaev Jaxongir Abidovich",
       phone: "",
       email: "E-pochta: j.artikkhodjaev@tashkent.uz",
@@ -73,7 +73,7 @@ export const ManagementData = {
     {
       img: img3,
       title:
-        "Toshkent shahar hokimining arxitektura, kapital qurilish va kommunikatsiyalarni rivojlantirish masalalari bo‘yicha birinchi o‘rinbosari",
+        "Tortko'l shahar hokimining arxitektura, kapital qurilish va kommunikatsiyalarni rivojlantirish masalalari bo‘yicha birinchi o‘rinbosari",
       name: "Raxmonov Baxtiyor Sultonovich",
       phone: "Telefon: 71 210-02-01",
       email: "E-pochta: b.raxmonov@tashkent.uz",
@@ -96,7 +96,7 @@ export const ManagementData = {
   ru: [
     {
       img: img1,
-      title: "Toshkent shahar hokimi",
+      title: "Tortko'l shahar hokimi",
       name: "Artikxodjaev Jaxongir Abidovich",
       phone: "",
       email: "E-pochta: j.artikkhodjaev@tashkent.uz",

@@ -30,25 +30,25 @@ const SpecMenu = () => {
   return (
     <Wrapper>
       <Left>
-        <div>
+        {/* <div>
           <AiOutlineMail />
           <span>
             <a href="mailto:turtkul-gov@gmail.com">
               &nbsp; hokimiyat@gmail.com
             </a>
           </span>
-        </div>
+        </div> */}
         {match && (
           <>
             <div>
               <GoLocation />
               <span>
-                <Link to="/">&nbsp;Amir Temur ko'chasi 108-A uy</Link>
+                <Link to="/">&nbsp;Qoraqalpog‘iston Respublikasi To‘rtko‘l tumani, To‘rtko‘l ko‘chasi 53-uy.</Link>
               </span>
             </div>
             <div>
               <BsTelephone />
-              <span>&nbsp; 71-255-98-37</span>
+              <span>&nbsp; (61) 532-30-40</span>
             </div>
           </>
         )}

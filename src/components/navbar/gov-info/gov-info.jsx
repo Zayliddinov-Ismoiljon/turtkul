@@ -14,7 +14,7 @@ export const GovInfo = () => {
          <Divider>
             <WebsiteInfo>
                <TestVersion>Test version</TestVersion>
-               <Website>Toshkent shahar hokimligi rasmiy web-sayti</Website>
+               <Website>To‘rtko‘l shahar hokimligi rasmiy web-sayti</Website>
             </WebsiteInfo>
             <GovLocation>
 

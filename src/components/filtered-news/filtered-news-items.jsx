@@ -38,11 +38,11 @@ const toDate=(date)=>new Date(date).toLocaleString('en-US', { day: 'numeric', mo
 									<Grid item xs={12} sm={6} md={6} lg={6}>
 										<NewsInfo>
 											<h4>{news_item.title}</h4>
-											<p
+											{/* <p
 												dangerouslySetInnerHTML={{
 													__html: `${news_item.body}`,
 												}}
-											/>
+											/> */}
 											<h5>
 												<EventIcon /> {toDate(news_item.date)}
 											</h5>

@@ -14,7 +14,7 @@ const City = ({ city }) => {
 
   return (
     <div style={{ marginBottom: "30px" }}>
-      <Title text={city.title} />
+      {/* <Title text={city.title} />
       <div data-aos="fade-up">
         <Wrapper>
           {city.cards.map((item, id) => {
@@ -27,7 +27,7 @@ const City = ({ city }) => {
             );
           })}
         </Wrapper>
-      </div>
+      </div> */}
     </div>
   );
 };
